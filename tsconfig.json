@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "experimentalDecorators": true,
+    "noLib": false,
+    "jsx": "react",
+    "outDir": "dist",
+
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "app/*"
+      ]
+    },
+    "files": [
+      "typings/custom/mobx-jsonapi-store.d.ts",
+      "typings/custom/mobx-keys-store.d.ts"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
