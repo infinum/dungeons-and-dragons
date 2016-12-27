@@ -11,7 +11,17 @@
   "env": {
     "development": {
       "plugins": [
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
+        [
+          "react-transform",
+          {
+            "transforms": [{
+              "transform": "react-transform-hmr",
+              "imports": ["react"],
+              "locals": ["module"]
+            }]
+          }
+        ]
       ]
     }
   }

@@ -104,7 +104,9 @@ if (!DEV) {
     'webpack/hot/only-dev-server'
   );
   config.plugins.push(
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   );
 }
 
