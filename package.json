@@ -6,11 +6,13 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack",
+    "storybook": "NODE_ENV=development start-storybook --port 9009"
   },
   "author": "Darko <darko@kukovec.eu>",
   "license": "MIT",
   "dependencies": {
+    "@kadira/storybook": "^2.35.1",
     "@types/chai": "^3.4.34",
     "@types/lodash": "^4.14.44",
     "@types/loglevel": "^1.4.29",
