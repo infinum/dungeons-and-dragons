@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('webpack-html-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const appConfig = require('./config');
 
@@ -37,6 +38,7 @@ const config = {
   devtool: DEV ? 'cheap-module-eval-source-map' : false,
   entry: {
     app: [
+      'whatwg-fetch',
       `${ctx}/app/index.tsx`
     ]
   },
@@ -76,15 +78,13 @@ const config = {
         'NODE_ENV': DEV ? JSON.stringify('production') : null
       }
     }),
-    new webpack.ProvidePlugin({
-        'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks({userRequest}) {
         return typeof userRequest === 'string' && userRequest.includes('node_modules');
       }
-    })
+    }),
+    new LodashModuleReplacementPlugin()
   ],
   resolve: {
     modules: [`${ctx}/app`, 'node_modules'],

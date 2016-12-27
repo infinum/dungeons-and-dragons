@@ -27,7 +27,7 @@ Requirement: yarn - `npm install -g yarn`
 ## TODO
 
 * SCSS imports not working
-* check if fetch polyfill is really enabled
 * react-router
 * code splitting - [manifest chunk](https://webpack.js.org/guides/code-splitting-libraries/#manifest-file)
 * basic tests
+* React Storybook

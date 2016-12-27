@@ -1,8 +1,7 @@
 import config from 'config';
-import * as _ from 'lodash';
 
 /** @constant {Object} debug - Object to be exposed */
-const debug: Object = {config, _};
+const debug: Object = {config};
 
 if (!config.PROD) {
   window['debug'] = debug;
@@ -15,7 +14,7 @@ if (!config.PROD) {
  * @param {Mixed} value - Value of the variable
  * @return {undefined}
  */
-export function debugVar(name, value) {
+export function debugVar(name: string, value: any): void {
   debug[name] = value;
 }
 
@@ -25,6 +24,6 @@ export function debugVar(name, value) {
  * @param {Object} vars - Object with variables to be added
  * @return {undefined}
  */
-export function debugVars(vars) {
+export function debugVars(vars: Object): void {
   Object.assign(debug, vars);
 }

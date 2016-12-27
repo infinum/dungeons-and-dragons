@@ -8,6 +8,9 @@
       "useBuiltIns": true
     }]
   ],
+  "plugins": [
+    "lodash"
+  ],
   "env": {
     "development": {
       "plugins": [
