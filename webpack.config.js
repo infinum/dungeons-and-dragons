@@ -11,9 +11,9 @@ const ctx = path.join(__dirname);
 const DEV = process.env.NODE_ENV === 'development';
 
 const loaders = [
-  'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]&camelCase',
-  'postcss-loader?sourceMap=inline',
-  'sass-loader?sourceMap'
+  `css-loader?sourceMap=${DEV}&modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]&camelCase`,
+  `postcss-loader?sourceMap=${DEV ? 'inline' : false}`,
+  `sass-loader?sourceMap=${DEV}`
 ];
 
 const config = {
@@ -51,7 +51,7 @@ const config = {
     rules: [{
       test: /\.(ts|tsx)?/,
       exclude: /node_modules/,
-      loaders: ['babel-loader', 'awesome-typescript-loader']
+      loader: 'awesome-typescript-loader'
     },
     DEV ? {
       test: /\.scss$/,
