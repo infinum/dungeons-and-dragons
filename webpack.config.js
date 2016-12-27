@@ -35,12 +35,11 @@ const config = {
     hints: DEV ? false : 'warning'
   },
   devtool: DEV ? 'cheap-module-eval-source-map' : false,
-  entry: DEV ? [
-    `webpack-dev-server/client?http://localhost:${appConfig.port}`,
-    `${ctx}/app/index.tsx`
-  ] : [
-    `${ctx}/app/index.tsx`
-  ],
+  entry: {
+    app: [
+      `${ctx}/app/index.tsx`
+    ]
+  },
   output: {
     path: `${ctx}/dist`,
     filename: '[name].js',
@@ -81,12 +80,11 @@ const config = {
         'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendors',
+      name: 'vendor',
       minChunks({userRequest}) {
         return typeof userRequest === 'string' && userRequest.includes('node_modules');
       }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({name: 'manifest'})
+    })
   ],
   resolve: {
     modules: [`${ctx}/app`, 'node_modules'],
@@ -100,6 +98,11 @@ if (!DEV) {
     new ExtractTextPlugin('styles.css')
   );
 } else {
+  config.entry.app.unshift(
+    'react-hot-loader/patch',
+    `webpack-dev-server/client?http://localhost:${appConfig.port}`,
+    'webpack/hot/only-dev-server'
+  );
   config.plugins.push(
     new webpack.HotModuleReplacementPlugin()
   );

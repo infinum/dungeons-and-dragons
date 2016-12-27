@@ -30,5 +30,5 @@ Requirement: yarn - `npm install -g yarn`
 * HMR not working without reload
 * check if fetch polyfill is really enabled
 * react-router
-* code splitting
+* code splitting - [manifest chunk](https://webpack.js.org/guides/code-splitting-libraries/#manifest-file)
 * basic tests

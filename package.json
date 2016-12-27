@@ -9,7 +9,7 @@
     "build": "NODE_ENV=production webpack"
   },
   "author": "Darko <darko@kukovec.eu>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@types/chai": "^3.4.34",
     "@types/lodash": "^4.14.44",
@@ -49,6 +49,7 @@
     "postcss-loader": "^1.2.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-hot-loader": "3.0.0-beta.6",
     "react-router": "3",
     "react-tap-event-plugin": "^2.0.1",
     "sass-loader": "^4.1.1",
