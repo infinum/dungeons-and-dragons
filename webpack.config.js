@@ -10,8 +10,9 @@ const ctx = path.join(__dirname);
 const DEV = process.env.NODE_ENV === 'development';
 
 const loaders = [
-  'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]&camelCase',
-  'sass-loader'
+  'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]&camelCase',
+  'postcss-loader?sourceMap=inline',
+  'sass-loader?sourceMap'
 ];
 
 const config = {
@@ -33,6 +34,7 @@ const config = {
   performance: {
     hints: DEV ? false : 'warning'
   },
+  devtool: DEV ? 'cheap-module-eval-source-map' : false,
   entry: DEV ? [
     `webpack-dev-server/client?http://localhost:${appConfig.port}`,
     `${ctx}/app/index.tsx`
@@ -41,7 +43,7 @@ const config = {
   ],
   output: {
     path: `${ctx}/dist`,
-    filename: 'app.js',
+    filename: '[name].js',
     publicPath: '/'
   },
   module: {
@@ -56,6 +58,12 @@ const config = {
     } : {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract(loaders.join('!'))
+    }, {
+        test: /\.(png|jpg|svg)$/i,
+        loader: 'file-loader?name=./assets/[name].[ext]'
+    }, {
+        test: /\.(woff|eot|ttf|woff2)$/i,
+        loader: 'file-loader?name=./assets/[name].[ext]'
     }]
   },
   plugins: [
@@ -72,6 +80,13 @@ const config = {
     new webpack.ProvidePlugin({
         'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendors',
+      minChunks({userRequest}) {
+        return typeof userRequest === 'string' && userRequest.includes('node_modules');
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({name: 'manifest'})
   ],
   resolve: {
     modules: [`${ctx}/app`, 'node_modules'],
