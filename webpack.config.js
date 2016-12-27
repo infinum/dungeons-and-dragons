@@ -17,25 +17,6 @@ const loaders = [
 ];
 
 const config = {
-  devServer: DEV ? {
-    contentBase: `${ctx}/dist`,
-    publicPath: '/',
-    hot: true,
-    historyApiFallback: true,
-    compress: true,
-    port: appConfig.port,
-    stats: {
-      colors: true,
-      hash: true,
-      timings: true,
-      chunks: false,
-      progres: true
-    }
-  } : {},
-  performance: {
-    hints: DEV ? false : 'warning'
-  },
-  devtool: DEV ? 'cheap-module-eval-source-map' : false,
   entry: {
     app: [
       'whatwg-fetch',
@@ -44,7 +25,7 @@ const config = {
   },
   output: {
     path: `${ctx}/dist`,
-    filename: '[name].js',
+    filename: '[name]-[hash].js',
     publicPath: '/'
   },
   module: {
@@ -61,10 +42,10 @@ const config = {
       loader: ExtractTextPlugin.extract(loaders.join('!'))
     }, {
         test: /\.(png|jpg|svg)$/i,
-        loader: 'file-loader?name=./assets/[name].[ext]'
+        loader: 'file-loader?name=assets/[name]-[hash].[ext]'
     }, {
         test: /\.(woff|eot|ttf|woff2)$/i,
-        loader: 'file-loader?name=./assets/[name].[ext]'
+        loader: 'file-loader?name=assets/[name]-[hash].[ext]'
     }]
   },
   plugins: [
@@ -90,6 +71,27 @@ const config = {
     modules: [`${ctx}/app`, 'node_modules'],
     extensions: ['.js', '.ts', '.tsx', '.scss']
   },
+  cache: true,
+  devServer: DEV ? {
+    contentBase: `${ctx}/dist`,
+    publicPath: '/',
+    hot: true,
+    historyApiFallback: true,
+    compress: true,
+    port: appConfig.port,
+    stats: {
+      colors: true,
+      hash: true,
+      timings: true,
+      chunks: false,
+      progres: true
+    }
+  } : {},
+  performance: {
+    hints: DEV ? false : 'warning'
+  },
+  devtool: DEV ? 'cheap-module-eval-source-map' : false,
+  stats: false
 };
 
 if (!DEV) {
