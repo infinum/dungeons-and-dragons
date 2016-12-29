@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('webpack-html-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
@@ -51,8 +51,10 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Boilerplate',
       filename: 'index.html',
-      template: `${ctx}/app/index.html`,
+      template: `!!html-loader!${ctx}/app/index.html`,
+      chunksSortMode: 'dependency',
       inject: true
     }),
     new webpack.DefinePlugin({
@@ -66,6 +68,7 @@ const config = {
         return typeof userRequest === 'string' && userRequest.includes('node_modules');
       }
     }),
+    new webpack.optimize.CommonsChunkPlugin({name: 'mainfest'}),
     new LodashModuleReplacementPlugin()
   ],
   resolve: {

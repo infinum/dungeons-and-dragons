@@ -39,6 +39,8 @@
     "enzyme": "^2.7.0",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.24.1",
     "lodash": "^4.17.3",
     "lodash-webpack-plugin": "^0.10.6",
     "loglevel": "^1.4.1",
@@ -65,7 +67,6 @@
     "typings": "^2.1.0",
     "webpack": "beta",
     "webpack-dev-server": "beta",
-    "webpack-html-plugin": "^0.1.1",
     "whatwg-fetch": "^2.0.1"
   }
 }

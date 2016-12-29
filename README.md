@@ -26,5 +26,6 @@ Requirement: yarn - `npm install -g yarn`
 
 ## TODO
 
-* code splitting - [manifest chunk](https://webpack.js.org/guides/code-splitting-libraries/#manifest-file)
 * basic tests
+* tslint
+* route code splitting
