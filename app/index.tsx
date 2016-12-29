@@ -5,8 +5,8 @@ import 'styles/main.scss';
 import * as React from 'react';
 import {render} from 'react-dom';
 
-import App from 'containers/App/App';
+import AppRouter from 'router';
 
-render(<App />, document.querySelector('.app'));
+render(<AppRouter />, document.querySelector('.app'));
 
 console.log('Test');

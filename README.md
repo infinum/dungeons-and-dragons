@@ -26,6 +26,5 @@ Requirement: yarn - `npm install -g yarn`
 
 ## TODO
 
-* react-router
 * code splitting - [manifest chunk](https://webpack.js.org/guides/code-splitting-libraries/#manifest-file)
 * basic tests
