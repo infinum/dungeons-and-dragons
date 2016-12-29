@@ -34,6 +34,7 @@
     "babel-preset-env": "^1.1.4",
     "babili-webpack-plugin": "^0.0.7",
     "chai": "^3.5.0",
+    "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.26.1",
     "cssnano": "^3.9.1",
     "enzyme": "^2.7.0",

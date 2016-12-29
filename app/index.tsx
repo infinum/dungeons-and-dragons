@@ -9,4 +9,4 @@ import AppRouter from 'router';
 
 render(<AppRouter />, document.querySelector('.app'));
 
-console.log('Test');
+console.log(process.env.NODE_ENV)

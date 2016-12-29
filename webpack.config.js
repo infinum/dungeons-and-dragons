@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const appConfig = require('./config');
 
@@ -11,7 +12,7 @@ const ctx = path.join(__dirname);
 const DEV = process.env.NODE_ENV === 'development';
 
 const loaders = [
-  `css-loader?sourceMap=${DEV}&modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]&camelCase`,
+  `css-loader?sourceMap=${DEV}&modules&importLoaders=1&localIdentName=${DEV ? '[name]__[local]--[hash:base64:5]' : '[hash:base64:5]'}&camelCase`,
   `postcss-loader?sourceMap=${DEV ? 'inline' : false}`,
   `sass-loader?sourceMap=${DEV}`
 ];
@@ -26,14 +27,17 @@ const config = {
   },
   output: {
     path: `${ctx}/dist`,
-    filename: '[name]-[hash].js',
+    filename: '[name]-[chunkhash].js',
     publicPath: '/'
   },
   module: {
     rules: [{
       test: /\.(ts|tsx)?/,
       exclude: /node_modules/,
-      loader: 'awesome-typescript-loader'
+      loader: 'awesome-typescript-loader',
+      query: {
+        plugins: ['lodash']
+      }
     },
     DEV ? {
       test: /\.scss$/,
@@ -43,10 +47,10 @@ const config = {
       loader: ExtractTextPlugin.extract(loaders.join('!'))
     }, {
         test: /\.(png|jpg|svg)$/i,
-        loader: 'file-loader?name=assets/[name]-[hash].[ext]'
+        loader: 'file-loader?name=assets/[name]-[chunkhash].[ext]'
     }, {
         test: /\.(woff|eot|ttf|woff2)$/i,
-        loader: 'file-loader?name=assets/[name]-[hash].[ext]'
+        loader: 'file-loader?name=assets/[name]-[chunkhash].[ext]'
     }]
   },
   plugins: [
@@ -59,7 +63,7 @@ const config = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': DEV ? JSON.stringify('production') : null
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
@@ -99,10 +103,12 @@ const config = {
 };
 
 if (!DEV) {
-  config.plugins.push(
+  config.plugins = [
+    new CleanWebpackPlugin(`${ctx}/dist`),
+    ...config.plugins,
     new BabiliPlugin(),
-    new ExtractTextPlugin('styles.css')
-  );
+    new ExtractTextPlugin('styles-[chunkhash].css')
+  ];
 } else {
   config.entry.app.unshift(
     'react-hot-loader/patch',
