@@ -7,6 +7,6 @@ module.exports = {
   },
   externals: webpackConfig.externals,
   resolve: {
-    root: webpackConfig.resolve.modules.slice(1)
+    root: `${webpackConfig.context}/app`
   }
 };

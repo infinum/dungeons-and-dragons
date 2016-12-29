@@ -17,6 +17,7 @@ const loaders = [
 ];
 
 const config = {
+  context: ctx,
   entry: {
     app: [
       'whatwg-fetch',
