@@ -1,10 +1,12 @@
 import config from 'config';
 
+import {DEBUG_OBJ} from 'consts/app';
+
 /** @constant {Object} debug - Object to be exposed */
 const debug: Object = {config};
 
 if (!config.PROD) {
-  window['debug'] = debug;
+  window[DEBUG_OBJ] = debug;
 }
 
 /**

@@ -7,10 +7,34 @@
     "start": "npm run dev",
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
     "build": "NODE_ENV=production webpack",
-    "storybook": "NODE_ENV=development start-storybook --port 9009"
+    "storybook": "NODE_ENV=development start-storybook --port 9009",
+    "test": "NODE_ENV=test nyc mocha",
+    "lint": "tslint './app/**/*.ts'",
+    "watch": "nodemon -e .ts -i node_modules -i dist -i coverage -x mocha",
+    "precommit": "npm run lint && npm test"
   },
   "author": "Darko <darko@kukovec.eu>",
   "license": "MIT",
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "exclude": [
+      "app/interfaces/*",
+      "test/*"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "cache": false,
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ]
+  },
   "dependencies": {
     "@kadira/storybook": "^2.35.3",
     "@types/chai": "^3.4.34",
@@ -53,6 +77,7 @@
     "node-sass": "^4.4.0",
     "nodemon": "^1.11.0",
     "normalize.css": "^5.0.0",
+    "nyc": "^10.1.2",
     "postcss-loader": "^1.2.2",
     "react": "^15.4.2",
     "react-css-themr": "^1.7.2",
@@ -64,6 +89,8 @@
     "react-transform-hmr": "^1.0.4",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
+    "ts-node": "^2.0.0",
+    "tslint": "^4.4.2",
     "typescript": "^2.1.5",
     "typings": "^2.1.0",
     "webpack": "beta",

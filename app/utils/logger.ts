@@ -1,7 +1,7 @@
 import {getLogger} from 'loglevel';
 
-import levels from 'enums/logLevel';
 import config from 'config';
+import levels from 'enums/logLevel';
 
 /**
  * Log formatting function

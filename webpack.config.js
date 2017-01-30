@@ -34,11 +34,7 @@ const config = {
     rules: [{
       test: /\.(ts|tsx)?/,
       exclude: /node_modules/,
-      loader: 'awesome-typescript-loader',
-      query: {
-        useBabel: true,
-        plugins: ['lodash']
-      }
+      loader: 'awesome-typescript-loader'
     },
     DEV ? {
       test: /\.scss$/,

@@ -16,11 +16,7 @@
       "*": [
         "app/*"
       ]
-    },
-    "files": [
-      "typings/custom/mobx-jsonapi-store.d.ts",
-      "typings/custom/mobx-keys-store.d.ts"
-    ]
+    }
   },
   "exclude": [
     "node_modules"

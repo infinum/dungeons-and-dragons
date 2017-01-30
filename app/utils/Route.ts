@@ -1,5 +1,5 @@
-import {Route as ReactRoute, IndexRoute as ReactIndexRoute} from 'react-router';
-import {find, clone, noop} from 'lodash';
+import {clone, find, noop} from 'lodash';
+import {IndexRoute as ReactIndexRoute, Route as ReactRoute} from 'react-router';
 
 import store from 'stores';
 
@@ -19,7 +19,7 @@ function cbWrapper(name, ctx, args, cb = noop) {
       if (store) {
         store.keys.setItem('error', e || {
           status: 500,
-          title: 'Server error'
+          title: 'Server error',
         });
       }
       cb();
@@ -83,9 +83,10 @@ function bindHooks(RouteComponent) {
 }
 
 export class Route extends ReactRoute {
-  static createRouteFromReactElement = bindHooks(ReactRoute);
+  public static createRouteFromReactElement = bindHooks(ReactRoute);
 }
 
+// tslint:disable-next-line:max-classes-per-file
 export class IndexRoute extends ReactIndexRoute {
-  static createRouteFromReactElement = bindHooks(ReactIndexRoute);
+  public static createRouteFromReactElement = bindHooks(ReactIndexRoute);
 }
