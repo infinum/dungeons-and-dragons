@@ -5,7 +5,7 @@ const styles = require('containers/App/App.scss');
 export class App extends React.Component<{}, {}> {
   public render() {
     return (
-      <div className={styles.main}>Hello world!</div>
+      <div className={styles.grid}>Hello world!</div>
     );
   }
 }
