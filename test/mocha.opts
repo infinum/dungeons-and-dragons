@@ -4,3 +4,4 @@
 --recursive
 --bail
 app/**/*.test.ts
+app/**/*.test.tsx

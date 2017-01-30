@@ -24,14 +24,19 @@
     ],
     "exclude": [
       "app/interfaces/*",
-      "test/*"
+      "app/**/*.d.ts",
+      "app/**/*.test.ts",
+      "app/**/*.test.tsx",
+      "app/**/*.story.tsx",
+      "test/*",
+      "typings/*"
     ],
     "sourceMap": true,
     "instrument": true,
     "cache": false,
+    "all": true,
     "reporter": [
       "lcov",
-      "text",
       "text-summary"
     ]
   },
