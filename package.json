@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "deploy": "yarn build && now --alias dnd.hakni.me dist/",
     "start": "npm run dev",
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
     "build": "NODE_ENV=production webpack",
@@ -83,6 +84,7 @@
     "node-sass": "^4.4.0",
     "nodemon": "^1.11.0",
     "normalize.css": "^5.0.0",
+    "now": "^4.0.0",
     "nyc": "^10.1.2",
     "postcss-loader": "^1.2.2",
     "react": "^15.4.2",
