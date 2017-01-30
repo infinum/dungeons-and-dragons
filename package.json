@@ -9,7 +9,7 @@
     "build": "NODE_ENV=production webpack",
     "storybook": "NODE_ENV=development start-storybook --port 9009",
     "test": "NODE_ENV=test nyc mocha",
-    "lint": "tslint './app/**/*.ts'",
+    "lint": "tslint './app/**/*.tsx' './app/**/*.ts'",
     "watch": "nodemon -e .ts -i node_modules -i dist -i coverage -x mocha",
     "precommit": "npm run lint && npm test"
   },

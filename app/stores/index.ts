@@ -3,7 +3,6 @@ import {Collection} from 'mobx-collection-store';
 // :-(
 // Alternative: import * as KeysStore from 'mobx-keys-store';
 // Issue with alternative - the typings need to be changed
-// tslint:disable-next-line:no-var-requires
 const KeysStore = require('mobx-keys-store');
 
 class DataCollection extends Collection {
