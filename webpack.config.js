@@ -27,7 +27,7 @@ const config = {
   },
   output: {
     path: `${ctx}/dist`,
-    filename: '[name]-[chunkhash].js',
+    filename: '[name]-[hash].js',
     publicPath: '/'
   },
   module: {
@@ -36,6 +36,7 @@ const config = {
       exclude: /node_modules/,
       loader: 'awesome-typescript-loader',
       query: {
+        useBabel: true,
         plugins: ['lodash']
       }
     },
@@ -47,10 +48,10 @@ const config = {
       loader: ExtractTextPlugin.extract(loaders.join('!'))
     }, {
         test: /\.(png|jpg|svg)$/i,
-        loader: 'file-loader?name=assets/[name]-[chunkhash].[ext]'
+        loader: 'file-loader?name=assets/[name]-[hash].[ext]'
     }, {
         test: /\.(woff|eot|ttf|woff2)$/i,
-        loader: 'file-loader?name=assets/[name]-[chunkhash].[ext]'
+        loader: 'file-loader?name=assets/[name]-[hash].[ext]'
     }]
   },
   plugins: [
@@ -107,7 +108,7 @@ if (!DEV) {
     new CleanWebpackPlugin(`${ctx}/dist`),
     ...config.plugins,
     new BabiliPlugin(),
-    new ExtractTextPlugin('styles-[chunkhash].css')
+    new ExtractTextPlugin('styles-[hash].css')
   ];
 } else {
   config.entry.app.unshift(

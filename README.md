@@ -5,9 +5,9 @@
 * react
 * react-router
 * mobx
-* mobx-jsonapi-store
+* mobx-collection-store
 * PostCSS
-* Material UI
+* React Toolbox
 
 ## Browser support
 
