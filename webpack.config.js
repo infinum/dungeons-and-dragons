@@ -10,11 +10,25 @@ const appConfig = require('./config');
 const ctx = path.join(__dirname);
 const DEV = process.env.NODE_ENV === 'development';
 
-const loaders = [
+let localLoaders = [
   `css-loader?sourceMap=${DEV}&modules&importLoaders=1&localIdentName=${DEV ? '[name]__[local]--[hash:base64:5]' : '[hash:base64:5]'}&camelCase`,
   `postcss-loader?sourceMap=${DEV ? 'inline' : false}`,
   `sass-loader?sourceMap=${DEV}`
 ];
+
+let globalLoaders = [
+  `css-loader?sourceMap=${DEV}&importLoaders=1`,
+  `postcss-loader?sourceMap=${DEV ? 'inline' : false}`,
+  `sass-loader?sourceMap=${DEV}`
+];
+
+if (DEV) {
+  localLoaders.unshift('style-loader');
+  globalLoaders.unshift('style-loader');
+} else {
+  localLoaders = ExtractTextPlugin.extract(localLoaders.join('!'));
+  globalLoaders = ExtractTextPlugin.extract(globalLoaders.join('!'));
+}
 
 const config = {
   context: ctx,
@@ -37,13 +51,18 @@ const config = {
         'babel-loader',
         'awesome-typescript-loader'
       ]
-    },
-    DEV ? {
+    }, {
+      test: /\.css$/,
+      loaders: globalLoaders,
+      include: /node_modules/
+    }, {
       test: /\.scss$/,
-      loaders: ['style-loader', ...loaders]
-    } : {
+      loaders: globalLoaders,
+      include: [`${ctx}app/styles`]
+    }, {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract(loaders.join('!'))
+      loaders: localLoaders,
+      exclude: [`${ctx}app/styles`]
     }, {
         test: /\.(png|jpg|svg)$/i,
         loader: 'file-loader?name=assets/[name]-[hash].[ext]'
