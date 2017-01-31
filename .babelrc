@@ -2,7 +2,7 @@
   "presets": [
     ["env", {
       "targets": {
-        "chrome": 55
+        "chrome": 56
       },
       "modules": false,
       "useBuiltIns": true
@@ -25,6 +25,14 @@
             }]
           }
         ]
+      ]
+    },
+    "production": {
+      "presets": ["babili"],
+      "plugins": [
+        "transform-remove-debugger",
+        "transform-remove-console",
+        "minify-mangle-names"
       ]
     }
   }

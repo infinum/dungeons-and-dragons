@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BabiliPlugin = require('babili-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -21,7 +20,7 @@ const config = {
   context: ctx,
   entry: {
     app: [
-      'whatwg-fetch',
+      // 'whatwg-fetch',
       `${ctx}/app/index.tsx`
     ]
   },
@@ -34,7 +33,10 @@ const config = {
     rules: [{
       test: /\.(ts|tsx)?/,
       exclude: /node_modules/,
-      loader: 'awesome-typescript-loader'
+      use: [
+        'babel-loader',
+        'awesome-typescript-loader'
+      ]
     },
     DEV ? {
       test: /\.scss$/,
@@ -57,6 +59,9 @@ const config = {
       template: `!!html-loader!${ctx}/app/index.html`,
       chunksSortMode: 'dependency',
       inject: true
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: !DEV
     }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -103,7 +108,6 @@ if (!DEV) {
   config.plugins = [
     new CleanWebpackPlugin(`${ctx}/dist`),
     ...config.plugins,
-    new BabiliPlugin(),
     new ExtractTextPlugin('styles-[hash].css')
   ];
 } else {
