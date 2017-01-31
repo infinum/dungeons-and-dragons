@@ -1,7 +1,7 @@
 import {clone, find, noop} from 'lodash';
 import {IndexRoute as ReactIndexRoute, Route as ReactRoute} from 'react-router';
 
-import store from 'stores';
+import * as store from 'stores';
 
 /**
  * Wrap a promise based function to make it use callbakc function

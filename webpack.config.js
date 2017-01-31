@@ -119,7 +119,7 @@ const config = {
   performance: {
     hints: DEV ? false : 'warning'
   },
-  devtool: DEV ? 'cheap-module-eval-source-map' : false,
+  devtool: DEV ? 'cheap-module-source-map' : false,
   stats: false
 };
 
@@ -138,7 +138,7 @@ if (!DEV) {
   config.plugins.push(
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   );
 }
 

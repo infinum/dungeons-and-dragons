@@ -26,6 +26,9 @@ Requirement: yarn - `npm install -g yarn`
 
 ## TODO
 
+* fix babili
+* disable babel preset modules
+
+
 * basic tests
-* tslint
 * route code splitting

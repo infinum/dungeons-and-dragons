@@ -4,7 +4,6 @@
       "targets": {
         "chrome": 56
       },
-      "modules": false,
       "useBuiltIns": true
     }]
   ],
