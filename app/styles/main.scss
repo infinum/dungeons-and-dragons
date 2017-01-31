@@ -1,6 +1,9 @@
 @import '~normalize.css';
 
-body {
-  color: #FFFFFF;
-  background-color: #000000;
+html { // stylelint-disable-line
+  font-size: 62.5%;
+}
+
+body { // stylelint-disable-line
+  font-size: 160%; // 1 / 62.5%
 }
