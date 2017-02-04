@@ -1,5 +1,8 @@
+import {StatType} from 'stores/models';
+
 export interface IStat {
-  name: string;
+  type: StatType;
+  typeId: string;
   value?: number;
   modifier?: number;
 };

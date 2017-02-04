@@ -2,11 +2,13 @@ import * as React from 'react';
 import Input from 'react-toolbox/lib/input';
 
 import {StatItem} from 'components/StatItem//StatItem';
-import {IStat} from 'interfaces';
+import {IFormField, IStat} from 'interfaces';
 
 const styles = require('./style.scss');
 
-export class StatsForm extends React.Component<{stats: Array<IStat>}, {}> {
+export class StatsForm extends React.Component<{
+  stats: Array<IStat & IFormField>;
+}, {}> {
   public render() {
     return (
       <section>

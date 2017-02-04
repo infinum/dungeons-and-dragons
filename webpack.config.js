@@ -52,6 +52,9 @@ const config = {
         'awesome-typescript-loader'
       ]
     }, {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, {
       test: /\.css$/,
       loaders: globalLoaders,
       include: /node_modules/
@@ -98,7 +101,7 @@ const config = {
   ],
   resolve: {
     modules: [`${ctx}/app`, 'node_modules'],
-    extensions: ['.js', '.ts', '.tsx', '.scss']
+    extensions: ['.js', '.ts', '.tsx', '.scss', '.json']
   },
   cache: true,
   devServer: DEV ? {

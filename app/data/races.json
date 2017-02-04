@@ -1,0 +1,25 @@
+[{
+  "id": "human",
+  "name": "Human",
+  "description": "Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds."
+}, {
+  "id": "elf",
+  "name": "Elf",
+  "description": "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it."
+}, {
+  "id": "dwarf",
+  "name": "Dwarf",
+  "description": "Dwarves are solid and enduring like the mountains they love, weathering the passage of centuries with stoic endurance and little change."
+}, {
+  "id": "halfling",
+  "name": "Halfling",
+  "description": "The comforts of home are the goals of most halflings’ lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies."
+}, {
+  "id": "gnome",
+  "name": "Gnome",
+  "description": "Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play."
+}, {
+  "id": "half-orc",
+  "name": "Half-orc",
+  "description": "Half-orcs are not evil by nature, but evil does lurk within them, whether they embrace it or rebel against it."
+}]

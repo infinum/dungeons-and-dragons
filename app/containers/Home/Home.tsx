@@ -1,53 +1,44 @@
 import * as React from 'react';
+import {browserHistory} from 'react-router';
 
-import {AppearanceForm} from 'components/forms/Appearance/Appearance';
-import {BasicForm} from 'components/forms/Basic/Basic';
-import {StatsForm} from 'components/forms/Stats/Stats';
 import {Header} from 'components/Header/Header';
-
+import {CreatePlayer} from 'components/Player/CreatePlayer/CreatePlayer';
+import {PlayerList} from 'components/Player/PlayerList/PlayerList';
 import models from 'enums/models';
-import {IAppearance, IBasic, IStat} from 'interfaces';
 import {data} from 'stores';
 import {Player} from 'stores/models';
 
-const stats: Array<IStat> = [
-  {name: 'Strength'},
-  {name: 'Dexterity'},
-  {name: 'Constitution'},
-  {name: 'Intelligence'},
-  {name: 'Wisdom'},
-  {name: 'Charisma'},
-];
+export class Home extends React.Component<{}, {}> {
+  constructor(props) {
+    super(props);
 
-const basic: IBasic = {
-  aligement: '',
-  background: '',
-  class: '',
-  name: '',
-  playerName: '',
-  race: '',
-};
+    this.onCreateClick = this.onCreateClick.bind(this);
+  }
 
-const appearance: IAppearance = {};
+  public onCreateClick() {
+    const player = {
+      stats: data.statType.map((statType) => ({type: statType.id})),
+    };
 
-export class Home extends React.Component<{
-  id: number;
-}, {}> {
+    const model = data.add<Player>(player, models.PLAYER);
+    browserHistory.push(`/player/${model.id}`);
+  }
+
   public render() {
-    const {id} = this.props;
-    let player = data.find<Player>(models.PLAYER, id);
 
-    if (!player) {
-      player = data.add<Player>({stats}, 'player');
-    }
+    const players = data.player.filter((player) => player.name);
 
     return (
       <div>
         <Header />
         <div>
-          <BasicForm basic={player} />
-          <AppearanceForm appearance={player} />
-          <StatsForm stats={player.stats} />
+          <CreatePlayer onCreateClick={this.onCreateClick} />
+          <h2>Players</h2>
+          {
+            players.length
+              ? <PlayerList players={players} />
+              : <h4>No players right now...</h4>
+          }
         </div>
       </div>
     );
