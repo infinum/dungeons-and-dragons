@@ -1,6 +1,4 @@
-import {Model} from 'mobx-collection-store';
-
-type ModelType = Model & {id: number|string, name: string};
+type ModelType = {id: number|string, name: string};
 
 export type DropdownSource = {label: string, value: string|number};
 

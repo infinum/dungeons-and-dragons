@@ -16,11 +16,7 @@ export class Home extends React.Component<{}, {}> {
   }
 
   public onCreateClick() {
-    const player = {
-      stats: data.statType.map((statType) => ({type: statType.id})),
-    };
-
-    const model = data.add<Player>(player, models.PLAYER);
+    const model = data.createPlayer();
     browserHistory.push(`/player/${model.id}`);
   }
 

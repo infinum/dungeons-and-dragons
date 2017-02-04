@@ -61,11 +61,11 @@ const config = {
     }, {
       test: /\.scss$/,
       loaders: globalLoaders,
-      include: [`${ctx}app/styles`]
+      include: [`${ctx}/app/styles`]
     }, {
       test: /\.scss$/,
       loaders: localLoaders,
-      exclude: [`${ctx}app/styles`]
+      exclude: [`${ctx}/app/styles`]
     }, {
         test: /\.(png|jpg|svg)$/i,
         loader: 'file-loader?name=assets/[name]-[hash].[ext]'
@@ -123,7 +123,14 @@ const config = {
     hints: DEV ? false : 'warning'
   },
   devtool: DEV ? 'cheap-module-source-map' : false,
-  stats: false
+  stats: false,
+
+  externals: {
+    'cheerio': 'window',
+    'react/addons': 'react',
+    'react/lib/ExecutionEnvironment': 'react',
+    'react/lib/ReactContext': 'react',
+  }
 };
 
 if (!DEV) {

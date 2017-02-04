@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
     "build": "NODE_ENV=production webpack",
     "storybook": "NODE_ENV=development start-storybook --port 9009",
-    "test": "NODE_ENV=test nyc mocha",
+    "test": "NODE_ENV=test NODE_PATH=./app nyc mocha",
     "lint": "tslint './app/**/*.tsx' './app/**/*.ts'",
     "watch": "nodemon -e .ts -i node_modules -i dist -i coverage -x mocha",
     "precommit": "npm run lint && npm test"
@@ -18,7 +18,8 @@
   "license": "MIT",
   "nyc": {
     "extension": [
-      ".ts"
+      ".ts",
+      ".tsx"
     ],
     "require": [
       "ts-node/register"
@@ -30,7 +31,13 @@
       "app/**/*.test.tsx",
       "app/**/*.story.tsx",
       "test/*",
-      "typings/*"
+      "typings/*",
+      "node_modules",
+      "dist",
+      "coverage",
+      ".awcache",
+      ".nyc_output",
+      ".storybook"
     ],
     "sourceMap": true,
     "instrument": true,
@@ -44,16 +51,17 @@
   "dependencies": {
     "@kadira/storybook": "^2.35.3",
     "@types/chai": "^3.4.34",
+    "@types/enzyme": "^2.7.2",
     "@types/lodash": "^4.14.52",
     "@types/loglevel": "^1.4.29",
-    "@types/mocha": "^2.2.38",
+    "@types/mocha": "^2.2.39",
     "@types/nock": "^8.2.0",
-    "@types/node": "^7.0.4",
-    "@types/react": "^15.0.5",
+    "@types/node": "^7.0.5",
+    "@types/react": "^15.0.6",
     "@types/react-dom": "^0.14.22",
     "@types/react-router": "^3.0.0",
     "autoprefixer": "^6.7.2",
-    "awesome-typescript-loader": "^3.0.0-beta.18",
+    "awesome-typescript-loader": "^3.0.0-beta.19",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-lodash": "^3.2.11",
@@ -65,6 +73,8 @@
     "babel-preset-env": "^1.1.8",
     "babili": "^0.0.10",
     "chai": "^3.5.0",
+    "chai-enzyme": "^0.6.1",
+    "cheerio": "^0.22.0",
     "clean-webpack-plugin": "^0.1.15",
     "css-loader": "^0.26.1",
     "cssnano": "^3.10.0",
@@ -75,22 +85,25 @@
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.13.1",
     "json-loader": "^0.5.4",
+    "localstorage-memory": "^1.0.2",
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.0",
     "loglevel": "^1.4.1",
-    "mobx": "^3.0.2",
+    "mobx": "^3.1.0",
     "mobx-collection-store": "^0.8.0",
     "mobx-keys-store": "^1.0.0",
     "mobx-react": "^4.1.0",
     "mocha": "^3.2.0",
     "nock": "^9.0.2",
-    "node-sass": "^4.4.0",
+    "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "normalize.css": "^5.0.0",
-    "now": "^4.0.1",
+    "now": "^4.1.2",
     "nyc": "^10.1.2",
     "postcss-loader": "^1.2.2",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-test-utils": "^15.4.2",
     "react-css-themr": "^1.7.2",
     "react-dom": "^15.4.2",
     "react-hot-loader": "3.0.0-beta.6",
@@ -105,7 +118,7 @@
     "typescript": "^2.1.5",
     "typings": "^2.1.0",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.2.1",
+    "webpack-dev-server": "^2.3.0",
     "whatwg-fetch": "^2.0.2"
   }
 }

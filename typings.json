@@ -1,5 +1,7 @@
 {
   "globalDependencies": {
+    "chai-enzyme": "registry:dt/chai-enzyme#0.5.0+20170123203653",
+    "cheerio": "registry:dt/cheerio#0.17.0+20161119044246",
     "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20161120230953",
     "whatwg-streams": "registry:dt/whatwg-streams#0.0.0+20161214010628"
   }

@@ -1,3 +1,4 @@
+import {attempt} from 'lodash';
 import {autorun, toJS} from 'mobx';
 import {Collection, Model} from 'mobx-collection-store';
 
@@ -9,6 +10,6 @@ export class PersistantModel extends Model {
 
     super(data, collection);
 
-    autorun(() => saveModel(this));
+    autorun(() => attempt(saveModel, this));
   }
 }

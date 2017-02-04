@@ -1,13 +1,18 @@
 import {Model} from 'mobx-collection-store';
 
-export function saveModel(model: Model): void {
+export function saveModel(model: Model, storage = localStorage): void {
   const key = `${model.static.type}/${model[model.static.idAttribute]}`;
   const data = JSON.stringify(model.toJS());
-  localStorage.setItem(key, data);
+  storage.setItem(key, data);
 };
 
-export function loadTypeModels(type: string): Array<Object> {
-  const keys = Object.keys(localStorage);
-  const typeKeys = keys.filter((key) => key.indexOf(`${type}/`) === 0);
-  return typeKeys.map((key) => JSON.parse(localStorage.getItem(key)));
+export function loadTypeModels(type: string, storage = localStorage): Array<Object> {
+  const typeKeys = [];
+  for (let index = 0; index < storage.length; index++) {
+    const key = storage.key(index);
+    if (key.indexOf(`${type}/`) === 0) {
+      typeKeys.push(key);
+    }
+  }
+  return typeKeys.map((key) => JSON.parse(storage.getItem(key)));
 };
