@@ -4,7 +4,7 @@ import {Model} from 'mobx-collection-store';
 import models from 'enums/models';
 import {IStat} from 'interfaces';
 import {StatType} from 'stores/models';
-import {FormModel} from './FormModel';
+import {FormModel} from './base/FormModel';
 
 export class Stat extends FormModel implements IStat {
   public static type = models.STAT;

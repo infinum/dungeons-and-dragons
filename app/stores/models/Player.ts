@@ -5,7 +5,7 @@ import models from 'enums/models';
 import {IAppearance, IBasic} from 'interfaces';
 import {data} from 'stores';
 import {Alignment, Class, Race, Stat} from 'stores/models';
-import {FormModel} from './FormModel';
+import {FormModel} from './base/FormModel';
 
 export class Player extends FormModel implements IBasic, IAppearance {
   public static type = models.PLAYER;

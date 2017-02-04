@@ -1,7 +1,7 @@
 import {action} from 'mobx';
 import {Model} from 'mobx-collection-store';
 
-import {PersistantModel} from './base/PersistantModel';
+import {PersistantModel} from './PersistantModel';
 
 export class FormModel extends PersistantModel {
 
