@@ -8,14 +8,14 @@ module.exports = {
     if (!DEV) {
       config.plugins = [
         new CleanWebpackPlugin(`${ctx}/dist`, {root: ctx}),
-        ...config.plugins,
-        new BabiliPlugin({
-          removeConsole: true,
-          removeDebugger: true
-        }, {
-          comments: false,
-          sourceMap: false
-        })
+        ...config.plugins//,
+        // new BabiliPlugin({
+        //   removeConsole: true,
+        //   removeDebugger: true
+        // }, {
+        //   comments: false,
+        //   sourceMap: false
+        // })
       ];
     }
   }
