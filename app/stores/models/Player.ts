@@ -58,6 +58,8 @@ export class Player extends FormModel implements IBasic, IAppearance {
 
   @computed public get nextLevel(): Level {
     const levels = data.level.filter((level) => level.exp > this.experience);
-    return first(levels);
+    return levels.length
+      ? first(levels)
+      : this.level;
   }
 }
