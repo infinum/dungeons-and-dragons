@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "deploy": "yarn build && now -c ./config/now.json dist/",
+    "deploy": "yarn build && now dist/",
     "start": "npm run dev",
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
     "build": "NODE_ENV=production webpack",
@@ -47,6 +47,9 @@
       "text-summary"
     ]
   },
+  "now": {
+    "alias": "dnd.hakni.me"
+  },
   "dependencies": {
     "@kadira/storybook": "^2.35.3",
     "@types/chai": "^3.4.34",
@@ -68,7 +71,6 @@
     "babel-polyfill": "^6.22.0",
     "babel-preset-env": "^1.1.8",
     "babili": "^0.0.11",
-    "babili-webpack-plugin": "^0.0.10",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "cheerio": "^0.22.0",
@@ -115,6 +117,8 @@
     "tslint": "^4.4.2",
     "typescript": "rc",
     "typings": "^2.1.0",
+    "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
+    "uglifyjs-webpack-plugin": "^0.1.4",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",
     "whatwg-fetch": "^2.0.2"

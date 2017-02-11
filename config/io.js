@@ -4,7 +4,6 @@ module.exports = {
   entry: {
     app: [
       'styles/main.scss',
-      'babel-polyfill',
       `${ctx}/app/index.tsx`
     ]
   },
