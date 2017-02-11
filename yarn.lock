@@ -4474,6 +4474,10 @@ md5-o-matic@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/md5-o-matic/-/md5-o-matic-0.1.1.tgz#822bccd65e117c514fab176b25945d54100a03c3"
 
+media-blender@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/media-blender/-/media-blender-2.1.0.tgz#ce6ffe70c72ba2fb08825c07094298da177f3a1d"
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"

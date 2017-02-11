@@ -89,6 +89,7 @@
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.0",
     "loglevel": "^1.4.1",
+    "media-blender": "^2.1.0",
     "mobx": "^3.1.0",
     "mobx-collection-store": "^0.8.0",
     "mobx-keys-store": "^1.0.0",

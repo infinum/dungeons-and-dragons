@@ -8,7 +8,7 @@ const {ctx, DEV} = require('./common');
 
 module.exports = [
   new HtmlWebpackPlugin({
-    title: 'Boilerplate',
+    title: 'Dungeons & Dragons',
     filename: 'index.html',
     template: `!!html-loader!${ctx}/app/index.html`,
     chunksSortMode: 'dependency',
