@@ -19,7 +19,8 @@ module.exports = [{
   ]
 }, {
   test: /\.json$/,
-  loader: 'json-loader'
+  loader: 'json-loader',
+  exclude: /manifest\.json$/
 }, {
   test: /\.(css|scss)$/,
   use: localStyleLoaders,
@@ -32,6 +33,15 @@ module.exports = [{
   test: /\.(png|jpg|svg)$/i,
   loader: 'file-loader?name=assets/images/[name]-[hash].[ext]'
 }, {
+  test: /\.(ico)$/i,
+  loader: 'file-loader?name=favicon.ico'
+}, {
   test: /\.(woff|eot|ttf|woff2)$/i,
   loader: 'file-loader?name=assets/fonts/[name]-[hash].[ext]'
+}, {
+  test: /manifest\.json$/,
+  use: [
+    'file-loader?name=manifest.json',
+    'web-app-manifest-loader'
+  ]
 }];

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 const {ctx, DEV} = require('./common');
 
@@ -33,5 +34,6 @@ module.exports = [
     allChunks: true,
     filename: 'styles-[contenthash].css',
     disable: DEV
-  })
+  }),
+  new OfflinePlugin()
 ];

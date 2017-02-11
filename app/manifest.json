@@ -1,0 +1,17 @@
+{
+  "name": "Dungeons & Dragons",
+  "short_name": "D&D",
+  "start_url": "/",
+  "theme_color": "#EC2127",
+  "background_color": "#DDDDDD",
+  "display": "fullscreen",
+  "icons": [{
+    "src": "images/icon.png",
+    "sizes": "230x230",
+    "type": "image/png"
+  }, {
+    "src": "images/icon.ico",
+    "sizes": "128x128",
+    "type": "image/ico"
+  }]
+}

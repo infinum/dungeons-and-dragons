@@ -20,22 +20,26 @@ export class AppearanceForm extends React.Component<{
             type='text'
             label='Avatar URL'
             value={appearance.avatar}
-            onChange={appearance.setValue('avatar')} />
+            onChange={appearance.setValue('avatar')}
+          />
           <Input
             type='text'
             label='Height'
             value={appearance.height}
-            onChange={appearance.setValue('height')} />
+            onChange={appearance.setValue('height')}
+          />
           <Input
             type='text'
             label='Weight'
             value={appearance.weight}
-            onChange={appearance.setValue('weight')} />
+            onChange={appearance.setValue('weight')}
+          />
           <Input
             type='text'
             label='Sex'
             value={appearance.sex}
-            onChange={appearance.setValue('sex')} />
+            onChange={appearance.setValue('sex')}
+          />
         </div>
       </section>
     );

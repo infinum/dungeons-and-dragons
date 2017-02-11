@@ -26,13 +26,15 @@ export class BasicForm extends React.Component<{
             type='text'
             label='Name'
             value={basic.name}
-            onChange={basic.setValue('name')} />
+            onChange={basic.setValue('name')}
+          />
 
           <Dropdown
             label='Class'
             value={basic.classId}
             source={classes}
-            onChange={basic.setValue('class')} />
+            onChange={basic.setValue('class')}
+          />
           <div className={styles.level}>
             Level:
             <span>
@@ -51,28 +53,33 @@ export class BasicForm extends React.Component<{
             type='text'
             label='Background'
             value={basic.background}
-            onChange={basic.setValue('background')} />
+            onChange={basic.setValue('background')}
+          />
           <Input
             type='text'
             label='Player name'
             value={basic.playerName}
-            onChange={basic.setValue('playerName')} />
+            onChange={basic.setValue('playerName')}
+          />
 
           <Dropdown
             label='Race'
             value={basic.raceId}
             source={races}
-            onChange={basic.setValue('race')} />
+            onChange={basic.setValue('race')}
+          />
           <Dropdown
             label='Alignment'
             value={basic.alignmentId}
             source={alignments}
-            onChange={basic.setValue('alignment')} />
+            onChange={basic.setValue('alignment')}
+          />
           <Input
             type='number'
             label='Exp'
             value={basic.experience}
-            onChange={basic.setValue('experience')} />
+            onChange={basic.setValue('experience')}
+          />
         </div>
       </section>
     );

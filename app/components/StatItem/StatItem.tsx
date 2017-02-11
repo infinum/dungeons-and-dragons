@@ -19,7 +19,8 @@ export class StatItem extends React.Component<{
           type='number'
           label='Value'
           value={stat.value}
-          onChange={stat.setValue('value')} />
+          onChange={stat.setValue('value')}
+        />
         <div>Modifier: {stat.modifier}</div>
       </div>
     );

@@ -1,4 +1,6 @@
 import 'babel-polyfill';
+import 'manifest.json';
+require('offline-plugin/runtime').install();
 
 import * as React from 'react';
 import {render} from 'react-dom';
