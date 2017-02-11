@@ -1,10 +1,11 @@
-import {autorun} from 'mobx';
+import {first, last} from 'lodash';
+import {autorun, computed} from 'mobx';
 import {Collection} from 'mobx-collection-store';
 
 import models from 'enums/models';
 import {IAppearance, IBasic} from 'interfaces';
 import {data} from 'stores';
-import {Alignment, Class, Race, Stat} from 'stores/models';
+import {Alignment, Class, Level, Race, Stat} from 'stores/models';
 import {FormModel} from './base/FormModel';
 
 export class Player extends FormModel implements IBasic, IAppearance {
@@ -24,7 +25,6 @@ export class Player extends FormModel implements IBasic, IAppearance {
     class: 0,
     experience: 0,
     height: '',
-    level: 1,
     name: '',
     playerName: '',
     race: 0,
@@ -36,7 +36,6 @@ export class Player extends FormModel implements IBasic, IAppearance {
   public name: string;
   public class: Class;
   public classId: string;
-  public level?: number;
   public background: string;
   public playerName: string;
   public race: Race;
@@ -51,4 +50,14 @@ export class Player extends FormModel implements IBasic, IAppearance {
   public sex?: string;
 
   public stats: Array<Stat>; // Technically, this can also be only one stat...
+
+  @computed public get level(): Level {
+    const levels = data.level.filter((level) => level.exp <= this.experience);
+    return last(levels);
+  }
+
+  @computed public get nextLevel(): Level {
+    const levels = data.level.filter((level) => level.exp > this.experience);
+    return first(levels);
+  }
 }

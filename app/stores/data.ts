@@ -5,6 +5,7 @@ import {loadTypeModels} from 'services/persistance';
 
 import alignments from 'data/alignments';
 import classes from 'data/classes';
+import levels from 'data/levels';
 import races from 'data/races';
 import spells from 'data/spells';
 import statTypes from 'data/statTypes';
@@ -17,6 +18,7 @@ const modelsToHydrate = [
 export function initStatic(data: Collection): void {
   data.add(alignments, models.ALIGNMENT);
   data.add(classes, models.CLASS);
+  data.add(levels, models.LEVEL);
   data.add(races, models.RACE);
   data.add(spells, models.SPELL);
   data.add(statTypes, models.STAT_TYPE);

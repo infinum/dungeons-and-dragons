@@ -2,14 +2,15 @@ import {Collection} from 'mobx-collection-store';
 
 import models from 'enums/models';
 import {removeModel} from 'services/persistance';
-import {Alignment, Class, Player, Race, Spell, Stat, StatType} from 'stores/models';
+import {Alignment, Class, Level, Player, Race, Spell, Stat, StatType} from 'stores/models';
 
 export class DataCollection extends Collection {
-  public static types = [Alignment, Class, Player, Race, Spell, Stat, StatType];
+  public static types = [Alignment, Class, Level, Player, Race, Spell, Stat, StatType];
 
   // Should be equal to enums/models
   public alignment: Array<Alignment>;
   public 'class': Array<Class>;
+  public level: Array<Level>;
   public player: Array<Player>;
   public race: Array<Race>;
   public spell: Array<Spell>;

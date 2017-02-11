@@ -1,10 +1,11 @@
-import {Alignment, Class, Race, Stat} from 'stores/models';
+import {Alignment, Class, Level, Race, Stat} from 'stores/models';
 
 export interface IBasic {
   name: string;
   class: Class;
   classId: string;
-  level?: number;
+  level: Level;
+  nextLevel: Level;
   background: string;
   playerName: string;
   race: Race;

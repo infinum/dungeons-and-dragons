@@ -2,6 +2,7 @@ import {observer} from 'mobx-react';
 import * as React from 'react';
 import Dropdown from 'react-toolbox/lib/dropdown';
 import Input from 'react-toolbox/lib/input';
+import ProgressBar from 'react-toolbox/lib/progress_bar';
 
 import {IBasic, IFormField} from 'interfaces';
 import {DropdownSource} from 'utils/dropdownSource';
@@ -32,11 +33,20 @@ export class BasicForm extends React.Component<{
             value={basic.classId}
             source={classes}
             onChange={basic.setValue('class')} />
-          <Input
-            type='number'
-            label='Level'
-            value={basic.level}
-            onChange={basic.setValue('level')} />
+          <div className={styles.level}>
+            Level:
+            <span>
+              <span className={styles.levelValue}>{basic.level.toString()}</span>
+              <ProgressBar
+                className={styles.levelProgress}
+                type='circular'
+                mode='determinate'
+                value={+basic.experience}
+                max={basic.nextLevel.exp}
+                buffer={basic.nextLevel.exp}
+              />
+            </span>
+          </div>
           <Input
             type='text'
             label='Background'

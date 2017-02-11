@@ -3,3 +3,22 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
+
+.level {
+  line-height: 60px;
+  vertical-align: middle;
+  padding-left: 50px;
+}
+
+.levelValue {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 60px;
+  margin-right: -37px;
+  margin-left: 40px;
+}
+
+.levelProgress {
+  vertical-align: top;
+}
