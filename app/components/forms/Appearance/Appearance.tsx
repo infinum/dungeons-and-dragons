@@ -4,7 +4,7 @@ import Input from 'react-toolbox/lib/input';
 
 import {IAppearance, IFormField} from 'interfaces';
 
-const styles = require('./style.scss');
+const styles = require('./Appearance.scss');
 
 @observer
 export class AppearanceForm extends React.Component<{

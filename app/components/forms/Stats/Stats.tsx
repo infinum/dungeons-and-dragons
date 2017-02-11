@@ -4,7 +4,7 @@ import Input from 'react-toolbox/lib/input';
 import {StatItem} from 'components/StatItem//StatItem';
 import {IFormField, IStat} from 'interfaces';
 
-const styles = require('./style.scss');
+const styles = require('./Stats.scss');
 
 export class StatsForm extends React.Component<{
   stats: Array<IStat & IFormField>;
