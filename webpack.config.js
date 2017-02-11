@@ -21,7 +21,7 @@ const config = {
   performance: {
     hints: DEV ? false : 'warning'
   },
-  stats: false,
+  stats: !DEV,
   externals: {
     'cheerio': 'window',
     'react/addons': 'react',

@@ -1,7 +1,3 @@
-import 'babel-polyfill';
-
-require('./styles/main.scss');
-
 import * as React from 'react';
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
@@ -16,10 +12,10 @@ debugVars({data, keys});
 
 render(<AppContainer><Client /></AppContainer>, document.querySelector('.app'));
 
-if ('hot' in module) {
-  // tslint:disable-next-line:no-string-literal
-  module['hot'].accept('./client', () => {
-    const Client = require('./client').default;
-    render(<AppContainer><Client /></AppContainer>, document.querySelector('.app'));
-  });
-}
+// if ('hot' in module) {
+//   // tslint:disable-next-line:no-string-literal
+//   module['hot'].accept('./client', () => {
+//     const Client = require('./client').default;
+//     render(<AppContainer><Client /></AppContainer>, document.querySelector('.app'));
+//   });
+// }

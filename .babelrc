@@ -15,14 +15,6 @@
       "plugins": [
         "react-hot-loader/babel"
       ]
-    },
-    "production": {
-      "presets": ["babili"],
-      "plugins": [
-        "transform-remove-debugger",
-        "transform-remove-console",
-        "minify-mangle-names"
-      ]
     }
   }
 }
