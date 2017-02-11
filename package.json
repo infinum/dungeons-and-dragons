@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "deploy": "yarn build && now --alias dnd.hakni.me dist/",
+    "deploy": "yarn build && now -c ./config/now.json dist/",
     "start": "npm run dev",
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
     "build": "NODE_ENV=production webpack",
