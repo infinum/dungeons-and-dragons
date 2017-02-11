@@ -1,10 +1,14 @@
 import * as React from 'react';
 import {ThemeProvider} from 'react-css-themr';
 
-// import * as RTButton from 'components/Toolbox/Button.scss';
+import * as RTCard from 'components/Toolbox/Card.scss';
+import * as RTDialog from 'components/Toolbox/Dialog.scss';
+import * as RTTooltip from 'components/Toolbox/Tooltip.scss';
 
 const theme = {
-  // RTButton,
+  RTCard,
+  RTDialog,
+  RTTooltip,
 };
 
 class ThemeProviderWrapper extends React.Component<{

@@ -10,6 +10,8 @@ import {data} from 'stores';
 import {Player as PlayerModel} from 'stores/models';
 import {transformForDropdown} from 'utils/dropdownSource';
 
+import * as styles from './Player.scss';
+
 export class Player extends React.Component<{
   params: {id: string};
 }, {}> {
@@ -28,7 +30,7 @@ export class Player extends React.Component<{
     return (
       <div>
         <Header />
-        <div>
+        <div className={styles.content}>
           <BasicForm basic={player} classes={classes} alignments={alignments} races={races} />
           <AppearanceForm appearance={player} />
           <StatsForm stats={player.stats} />

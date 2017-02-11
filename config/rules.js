@@ -1,4 +1,5 @@
 const {globalStylePaths, globalStyleLoaders, localStyleLoaders} = require('./styles');
+const {DEV} = require('./common');
 
 module.exports = [{
     enforce: 'pre',
@@ -12,6 +13,7 @@ module.exports = [{
   test: /\.(ts|tsx)$/,
   exclude: /node_modules/,
   use: [
+    `ifdef-loader?json={"DEV":${DEV}}`,
     'babel-loader',
     'ts-loader'
   ]

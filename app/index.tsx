@@ -14,10 +14,10 @@ debugVars({data, keys});
 
 render(<AppContainer><Client /></AppContainer>, document.querySelector('.app'));
 
-// if ('hot' in module) {
-//   // tslint:disable-next-line:no-string-literal
-//   module['hot'].accept('./client', () => {
-//     const Client = require('./client').default;
-//     render(<AppContainer><Client /></AppContainer>, document.querySelector('.app'));
-//   });
-// }
+if ('hot' in module) {
+  // tslint:disable-next-line:no-string-literal
+  module['hot'].accept('./client', () => {
+    const Client = require('./client').default;
+    render(<AppContainer><Client /></AppContainer>, document.querySelector('.app'));
+  });
+}

@@ -16,3 +16,7 @@ export function loadTypeModels(type: string, storage = localStorage): Array<Obje
   }
   return typeKeys.map((key) => JSON.parse(storage.getItem(key)));
 };
+
+export function removeModel(type: string, id: number|string, storage = localStorage) {
+  storage.removeItem(`${type}/${id}`);
+};
