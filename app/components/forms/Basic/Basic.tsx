@@ -6,7 +6,7 @@ import Input from 'react-toolbox/lib/input';
 import {IBasic, IFormField} from 'interfaces';
 import {DropdownSource} from 'utils/dropdownSource';
 
-const styles = require('./Basic.scss');
+import * as styles from './Basic.scss';
 
 @observer
 export class BasicForm extends React.Component<{

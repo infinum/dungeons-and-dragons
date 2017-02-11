@@ -3,11 +3,11 @@ import {Collection} from 'mobx-collection-store';
 import models from 'enums/models';
 import {loadTypeModels} from 'services/persistance';
 
-const alignments = require('data/alignments.json');
-const classes = require('data/classes.json');
-const races = require('data/races.json');
-const spells = require('data/spells.json');
-const statTypes = require('data/statTypes.json');
+import alignments from 'data/alignments';
+import classes from 'data/classes';
+import races from 'data/races';
+import spells from 'data/spells';
+import statTypes from 'data/statTypes';
 
 const modelsToHydrate = [
   models.PLAYER,

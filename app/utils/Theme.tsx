@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {ThemeProvider} from 'react-css-themr';
 
-const RTButton = require('components/Toolbox/Button.scss');
+// import * as RTButton from 'components/Toolbox/Button.scss';
 
 const theme = {
-  RTButton,
+  // RTButton,
 };
 
 class ThemeProviderWrapper extends React.Component<{

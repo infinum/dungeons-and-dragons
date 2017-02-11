@@ -6,3 +6,4 @@ dist
 .awcache
 .nyc_output
 coverage
+*.scss.d.ts
