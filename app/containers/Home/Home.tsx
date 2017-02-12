@@ -31,7 +31,7 @@ export class Home extends React.Component<{}, {}> {
   }
 
   public onCreateClick() {
-    const model = data.createPlayer();
+    const model = data.add<Player>({}, models.PLAYER);
     browserHistory.push(`/player/${model.id}`);
   }
 

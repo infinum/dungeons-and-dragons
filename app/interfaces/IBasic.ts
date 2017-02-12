@@ -1,4 +1,5 @@
-import {Alignment, Class, Level, Race, Stat} from 'stores/models';
+import {IStats} from 'interfaces';
+import {Alignment, Background, Class, Level, Race} from 'stores/models';
 
 export interface IBasic {
   name: string;
@@ -6,11 +7,13 @@ export interface IBasic {
   classId: string;
   level: Level;
   nextLevel: Level;
-  background: string;
+  background: Background;
+  backgroundId: string;
   playerName: string;
   race: Race;
   raceId: string;
   alignment: Alignment;
   alignmentId: string;
   experience?: number;
+  stats: IStats;
 };

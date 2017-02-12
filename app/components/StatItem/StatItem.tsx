@@ -2,26 +2,29 @@ import {observer} from 'mobx-react';
 import * as React from 'react';
 import Input from 'react-toolbox/lib/input';
 
-import {IFormField, IStat} from 'interfaces';
+import {Player} from 'stores/models';
 
 import * as styles from './StatItem.scss';
 
 @observer
 export class StatItem extends React.Component<{
-  stat: IStat & IFormField;
+  name: string,
+  id: string,
+  onChange: Function,
+  player: Player,
 }, {}> {
   public render() {
-    const {stat} = this.props;
+    const {name, id, onChange, player} = this.props;
     return (
       <div className={styles.main}>
-        <h3>{stat.type.name}</h3>
+        <h3>{name}</h3>
         <Input
           type='number'
           label='Value'
-          value={stat.value}
-          onChange={stat.setValue('value')}
+          value={player.stats[id]}
+          onChange={onChange(id)}
         />
-        <div>Modifier: {stat.modifier}</div>
+        <div>Modifier: {player.modifiers[id]}</div>
       </div>
     );
   }

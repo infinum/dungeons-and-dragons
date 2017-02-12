@@ -22,8 +22,8 @@ const config = {
     filename: '[name].js',
   },
   plugins: [
+    new CleanWebpackPlugin(`${ctx}/.tmp/tests`, {root: ctx}),
     ...plugins.slice(3),
-    new CleanWebpackPlugin(`${ctx}/.tmp/test`, {root: ctx}),
   ],
   devtool,
   module: {rules},

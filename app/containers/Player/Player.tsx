@@ -15,15 +15,26 @@ import * as styles from './Player.scss';
 export class Player extends React.Component<{
   params: {id: string};
 }, {}> {
-  public render() {
-    const {params} = this.props;
-    let player = data.find<PlayerModel>(models.PLAYER, parseInt(params.id, 10));
+  public player: PlayerModel;
 
-    if (!player) {
+  constructor(props) {
+    super(props);
+    this.onStatChange = this.onStatChange.bind(this);
+    this.player = data.find<PlayerModel>(models.PLAYER, parseInt(props.params.id, 10));
+  }
+
+  public onStatChange(stat) {
+    return (value) => this.player.stats[stat] = value;
+  }
+
+  public render() {
+
+    if (!this.player) {
       return <h1>Not found!</h1>;
     }
 
     const alignments = transformForDropdown(data.alignment);
+    const backgrounds = transformForDropdown(data.background);
     const classes = transformForDropdown(data.class);
     const races = transformForDropdown(data.race);
 
@@ -31,9 +42,18 @@ export class Player extends React.Component<{
       <div>
         <Header />
         <div className={styles.content}>
-          <BasicForm basic={player} classes={classes} alignments={alignments} races={races} />
-          <AppearanceForm appearance={player} />
-          <StatsForm stats={player.stats} />
+          <BasicForm
+            alignments={alignments}
+            basic={this.player}
+            backgrounds={backgrounds}
+            classes={classes}
+            races={races}
+          />
+          <AppearanceForm appearance={this.player} />
+          <StatsForm
+            player={this.player}
+            onChange={this.onStatChange}
+          />
         </div>
       </div>
     );

@@ -12,12 +12,13 @@ import * as styles from './Basic.scss';
 @observer
 export class BasicForm extends React.Component<{
   alignments: Array<DropdownSource>;
+  backgrounds: Array<DropdownSource>;
   basic: IBasic & IFormField;
   classes: Array<DropdownSource>;
   races: Array<DropdownSource>;
 }, {}> {
   public render() {
-    const {alignments, basic, classes, races} = this.props;
+    const {alignments, backgrounds, basic, classes, races} = this.props;
     return (
       <section>
         <h2>Basic info</h2>
@@ -49,10 +50,10 @@ export class BasicForm extends React.Component<{
               />
             </span>
           </div>
-          <Input
-            type='text'
+          <Dropdown
             label='Background'
-            value={basic.background}
+            value={basic.backgroundId}
+            source={backgrounds}
             onChange={basic.setValue('background')}
           />
           <Input
