@@ -7,3 +7,4 @@ dist
 .nyc_output
 coverage
 *.scss.d.ts
+.tmp

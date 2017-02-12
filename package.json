@@ -8,7 +8,8 @@
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
     "build": "NODE_ENV=production webpack",
     "storybook": "NODE_ENV=development start-storybook --port 9009",
-    "test": "NODE_ENV=test NODE_PATH=./app nyc mocha",
+    "test_old": "NODE_ENV=test NODE_PATH=./app nyc mocha",
+    "test": "NODE_ENV=test webpack --config config/webpack.test.js && mocha",
     "lint": "tslint './app/**/*.tsx' './app/**/*.ts'",
     "watch": "nodemon -e .ts -i node_modules -i dist -i coverage -x mocha",
     "precommit": "npm run lint && npm test"
@@ -16,13 +17,9 @@
   "author": "Darko <darko@kukovec.eu>",
   "license": "MIT",
   "nyc": {
-    "extension": [
-      ".ts",
-      ".tsx"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
+    "sourceMap": true,
+    "instrument": true,
+    "cache": false,
     "exclude": [
       "app/interfaces/*",
       "app/**/*.d.ts",
@@ -36,12 +33,10 @@
       "coverage",
       ".awcache",
       ".nyc_output",
-      ".storybook"
+      ".storybook",
+      "~/*",
+      "webpack"
     ],
-    "sourceMap": true,
-    "instrument": true,
-    "cache": false,
-    "all": true,
     "reporter": [
       "lcov",
       "text-summary"
@@ -96,6 +91,7 @@
     "mobx-react": "^4.1.0",
     "mobx-react-devtools": "^4.2.11",
     "mocha": "^3.2.0",
+    "mocha-webpack": "^0.7.0",
     "nock": "^9.0.5",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
@@ -126,6 +122,8 @@
     "web-app-manifest-loader": "^0.1.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",
+    "webpack-glob-entries": "^1.0.1",
+    "webpack-node-externals": "^1.5.4",
     "whatwg-fetch": "^2.0.2"
   }
 }

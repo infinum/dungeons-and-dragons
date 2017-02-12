@@ -7,6 +7,14 @@ const OfflinePlugin = require('offline-plugin');
 const {ctx, DEV} = require('./common');
 
 module.exports = [
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    minChunks({userRequest}) {
+      return typeof userRequest === 'string' && userRequest.includes('node_modules');
+    }
+  }),
+  new webpack.optimize.CommonsChunkPlugin({name: 'mainfest'}),
+  new OfflinePlugin(),
   new HtmlWebpackPlugin({
     title: 'Dungeons & Dragons',
     filename: 'index.html',
@@ -22,18 +30,10 @@ module.exports = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     }
   }),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    minChunks({userRequest}) {
-      return typeof userRequest === 'string' && userRequest.includes('node_modules');
-    }
-  }),
-  new webpack.optimize.CommonsChunkPlugin({name: 'mainfest'}),
   new LodashModuleReplacementPlugin(),
   new ExtractTextPlugin({
     allChunks: true,
     filename: 'styles-[contenthash].css',
     disable: DEV
   }),
-  new OfflinePlugin()
 ];

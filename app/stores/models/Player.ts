@@ -4,12 +4,16 @@ import {Collection} from 'mobx-collection-store';
 
 import models from 'enums/models';
 import {IAppearance, IBasic} from 'interfaces';
-import {data} from 'stores';
 import {Alignment, Class, Level, Race, Stat} from 'stores/models';
 import {FormModel} from './base/FormModel';
 
+type ICollection = {
+  level: Array<Level>;
+};
+
 export class Player extends FormModel implements IBasic, IAppearance {
   public static type = models.PLAYER;
+
   public static refs = {
     alignment: 'alignment',
     class: 'class',
@@ -32,6 +36,9 @@ export class Player extends FormModel implements IBasic, IAppearance {
     weight: '',
   };
 
+  // A way to avoid circular references
+  public __collection: Collection & ICollection;
+
   public id: number;
   public name: string;
   public class: Class;
@@ -52,12 +59,12 @@ export class Player extends FormModel implements IBasic, IAppearance {
   public stats: Array<Stat>; // Technically, this can also be only one stat...
 
   @computed public get level(): Level {
-    const levels = data.level.filter((level) => level.exp <= this.experience);
+    const levels = this.__collection.level.filter((level) => level.exp <= this.experience);
     return last(levels);
   }
 
   @computed public get nextLevel(): Level {
-    const levels = data.level.filter((level) => level.exp > this.experience);
+    const levels = this.__collection.level.filter((level) => level.exp > this.experience);
     return levels.length
       ? first(levels)
       : this.level;

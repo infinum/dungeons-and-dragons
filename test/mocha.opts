@@ -1,7 +1,5 @@
---compilers ts-node/register
 --full-trace
 --check-leaks
 --recursive
 --bail
-app/**/*.test.ts
-app/**/*.test.tsx
+.tmp/tests/**/*.logic.js
