@@ -1,5 +1,5 @@
 import {IStats} from 'interfaces';
-import {Alignment, Background, Class, Level, Race} from 'stores/models';
+import {Alignment, Background, Class, Level, Race, SubRace} from 'stores/models';
 
 export interface IBasic {
   name: string;
@@ -16,4 +16,5 @@ export interface IBasic {
   alignmentId: string;
   experience?: number;
   stats: IStats;
+  subrace?: SubRace;
 };

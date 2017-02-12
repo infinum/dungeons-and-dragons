@@ -1,10 +1,11 @@
 import {first, last, mapValues} from 'lodash';
-import {autorun, computed} from 'mobx';
+import {action, autorun, computed, extendObservable} from 'mobx';
 import {Collection} from 'mobx-collection-store';
 
 import models from 'enums/models';
 import {IAppearance, IBasic, IStats} from 'interfaces';
-import {Alignment, Background, Class, Level, Race} from 'stores/models';
+import {Alignment, Background, Class, Level, Race, SubRace} from 'stores/models';
+import conditional from 'utils/conditional';
 import {FormModel} from './base/FormModel';
 
 type ICollection = {
@@ -15,23 +16,24 @@ export class Player extends FormModel implements IBasic, IAppearance {
   public static type = models.PLAYER;
 
   public static refs = {
-    alignment: 'alignment',
-    background: 'background',
-    class: 'class',
-    race: 'race',
+    alignment: models.ALIGNMENT,
+    background: models.BACKGROUND,
+    class: models.CLASS,
+    race: models.RACE,
   };
 
   // Needs to be provided so everything will be observable as expected
   public static defaults = {
-    alignment: 0,
+    __subraceId: '',
+    alignment: '',
     avatar: '',
     background: '',
-    class: 0,
+    class: '',
     experience: 0,
     height: '',
     name: '',
     playerName: '',
-    race: 0,
+    race: '',
     sex: '',
     stats: {
       charisma: 0,
@@ -66,6 +68,19 @@ export class Player extends FormModel implements IBasic, IAppearance {
   public sex?: string;
 
   public stats: IStats;
+  public subrace: SubRace;
+
+  constructor(data?: Object, collection?: Collection) {
+    super(data, collection);
+
+    extendObservable(this, {
+      subrace: conditional('subrace', (subId) => this.race && this.race.findSubrace(subId), this),
+    });
+  }
+
+  @computed public get availableSubraces(): Array<SubRace> {
+    return this.race ? this.race.subraces : [];
+  }
 
   @computed public get modifiers() {
     return mapValues(this.stats, (value) => Math.floor((value - 10) / 2));

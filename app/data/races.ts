@@ -64,20 +64,25 @@ export default [{
   description: 'Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.',
   id: 'gnome',
   name: 'Gnome',
+  subraces: [],
 }, {
   description: 'Half-orcs are not evil by nature, but evil does lurk within them, whether they embrace it or rebel against it.',
   id: 'half-orc',
   name: 'Half-orc',
+  subraces: [],
 }, {
   description: 'Half-Elves have curiosity and ambitions like humans but they have sense for magic and love for nature like their elven parents.',
   id: 'half-elf',
   name: 'Half-elf',
+  subraces: [],
 }, {
   description: 'Most tieflings prefer to be adventurers and rarely ever adventure with their own kin due to the prejudices of other races (people are concerned when two or more of their kind travel together).',
   id: 'tiefling',
   name: 'Tiefling',
+  subraces: [],
 }, {
   description: 'Dragonborn are a transitive race, members of other humanoid races who, to show devotion to Bahamut, willingly took on draconic traits in place of their original biology.',
   id: 'dragonborn',
   name: 'Dragonborn',
+  subraces: [],
 }];

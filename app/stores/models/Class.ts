@@ -1,11 +1,12 @@
+import models from 'enums/models';
 import {StatType} from 'stores/models';
 import {StaticModel} from './base/StaticModel';
 
 export class Class extends StaticModel {
-  public static type = 'class';
+  public static type = models.CLASS;
   public static refs = {
-    primaryAbillity: 'stat-type',
-    savingThrowProficiencies: 'stat-type',
+    primaryAbillity: models.STAT_TYPE,
+    savingThrowProficiencies: models.STAT_TYPE,
   };
 
   public id: string;

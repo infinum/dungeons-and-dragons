@@ -1,7 +1,8 @@
+import models from 'enums/models';
 import {StaticModel} from './base/StaticModel';
 
 export class Level extends StaticModel {
-  public static type = 'level';
+  public static type = models.LEVEL;
   public static idAttribute = 'level';
 
   public level: number;

@@ -16,9 +16,10 @@ export class BasicForm extends React.Component<{
   basic: IBasic & IFormField;
   classes: Array<DropdownSource>;
   races: Array<DropdownSource>;
+  subraces: Array<DropdownSource>;
 }, {}> {
   public render() {
-    const {alignments, backgrounds, basic, classes, races} = this.props;
+    const {alignments, backgrounds, basic, classes, races, subraces} = this.props;
     return (
       <section>
         <h2>Basic info</h2>
@@ -80,6 +81,12 @@ export class BasicForm extends React.Component<{
             label='Exp'
             value={basic.experience}
             onChange={basic.setValue('experience')}
+          />
+          <Dropdown
+            label='Subrace'
+            value={basic.subrace && basic.subrace.id}
+            source={subraces}
+            onChange={basic.setValue('subrace')}
           />
         </div>
       </section>

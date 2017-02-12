@@ -1,3 +1,4 @@
+import {observer} from 'mobx-react';
 import * as React from 'react';
 
 import {AppearanceForm} from 'components/forms/Appearance/Appearance';
@@ -12,6 +13,7 @@ import {transformForDropdown} from 'utils/dropdownSource';
 
 import * as styles from './Player.scss';
 
+@observer
 export class Player extends React.Component<{
   params: {id: string};
 }, {}> {
@@ -37,6 +39,7 @@ export class Player extends React.Component<{
     const backgrounds = transformForDropdown(data.background);
     const classes = transformForDropdown(data.class);
     const races = transformForDropdown(data.race);
+    const subraces = transformForDropdown(this.player.availableSubraces);
 
     return (
       <div>
@@ -48,6 +51,7 @@ export class Player extends React.Component<{
             backgrounds={backgrounds}
             classes={classes}
             races={races}
+            subraces={subraces}
           />
           <AppearanceForm appearance={this.player} />
           <StatsForm

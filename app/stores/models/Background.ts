@@ -1,7 +1,8 @@
+import models from 'enums/models';
 import {StaticModel} from './base/StaticModel';
 
 export class Background extends StaticModel {
-  public static type = 'background';
+  public static type = models.BACKGROUND;
 
   public id: string;
   public name: string;

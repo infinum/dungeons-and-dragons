@@ -1,9 +1,9 @@
+import models from 'enums/models';
+import {Class} from 'stores/models';
 import {StaticModel} from './base/StaticModel';
 
-import {Class} from 'stores/models';
-
 export class Spell extends StaticModel {
-  public static type = 'spell';
+  public static type = models.SPELL;
   public static idAttribute = 'name';
 
   public name: string;
