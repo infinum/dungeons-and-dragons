@@ -6,12 +6,13 @@
   font-family: $secondary-font;
   font-size: 1.4rem;
   top: auto;
-  bottom: 0.5rem;
+  bottom: 0.2rem;
+  text-transform: uppercase;
 
   .inputElement.filled ~ &:not(.fixed),
   .inputElement ~ &:not(.fixed) {
     top: auto;
-    bottom: 0.5rem;
+    bottom: 0.2rem;
     color: $primary-text-color;
     font-size: 1.4rem;
   }
@@ -19,7 +20,7 @@
   .inputElement.filled:focus:not([disabled]):not([readonly]) ~ &:not(.fixed),
   .inputElement:focus:not([disabled]):not([readonly]) ~ &:not(.fixed) {
     top: auto;
-    bottom: 0.5rem;
+    bottom: 0.2rem;
     color: $primary-text-color;
     font-size: 1.2rem;
   }
@@ -34,6 +35,11 @@
   color: $primary-text-color;
   padding: 0.2rem 0;
   font-size: 2rem;
+  font-weight: 700;
+
+  .disabled > & {
+    color: rgba($primary-text-color, 0.8);
+  }
 }
 
 .bar::before, .bar::after {

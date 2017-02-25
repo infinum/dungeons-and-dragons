@@ -1,7 +1,21 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 
   grid-gap: 10px;
+}
+
+.stats {
+  display: flex;
+  padding-top: 32px;
+  margin-top: 32px;
+  border-top: 2px solid $primary-text-color;
+}
+
+.saving-throws {
+  margin-left: 20px;
 }

@@ -1,9 +1,13 @@
+import * as classnames from 'classnames';
 import {map} from 'lodash';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import Input from 'react-toolbox/lib/input';
 
-import {StatItem} from 'components/StatItem//StatItem';
+import {Box} from 'components/common/Box/Box';
+import {SavingThrows} from 'components/forms/SavingThrows/SavingThrows';
+import {Skills} from 'components/forms/Skills/Skills';
+import {StatItem} from 'components/StatItem/StatItem';
 import {Player} from 'stores/models';
 
 import * as styles from './Stats.scss';
@@ -13,6 +17,7 @@ export class StatsForm extends React.Component<{
   player: Player;
   onChange: Function;
 }, {}> {
+
   public render() {
     const {onChange, player} = this.props;
     return (
@@ -58,36 +63,10 @@ export class StatsForm extends React.Component<{
           />
         </div>
 
-        <div>
-          <h4>Saving throws (WIP)</h4>
-          {
-            map(player.savingThrows, (value, key) => (
-              <div key={key}>
-                <input
-                  type='checkbox'
-                  checked={player.savingThrowProficiencies.indexOf(key) !== -1}
-                  disabled
-                />
-                {key}: {value}
-              </div>
-            ))
-          }
-        </div>
+        <div className={styles.stats}>
+          <Skills player={player} />
 
-        <div>
-          <h4>Skills (WIP)</h4>
-          {
-            map(player.skills, (value, key) => (
-              <div key={key}>
-                <input
-                  type='checkbox'
-                  checked={player.skillProficiencies.indexOf(key) !== -1}
-                  disabled
-                />
-                {key}: {value}
-              </div>
-            ))
-          }
+          <SavingThrows player={player} className={styles.savingThrows} />
         </div>
       </section>
     );

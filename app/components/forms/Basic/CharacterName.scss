@@ -1,0 +1,18 @@
+.label {
+  display: none;
+}
+
+.bar::before {
+  width: 20%;
+  left: 0;
+  height: 3px;
+}
+
+.bar::after {
+  display: none;
+}
+
+.input .inputElement {
+  font-size: 40px;
+  font-weight: 400;
+}

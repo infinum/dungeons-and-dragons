@@ -1,0 +1,9 @@
+@import '../../../styles/colors';
+
+.main {
+  border: 1px solid $primary-box-border-color;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px $primary-background-color;
+  background-color: $primary-box-color;
+  padding: 0 16px 8px;
+}

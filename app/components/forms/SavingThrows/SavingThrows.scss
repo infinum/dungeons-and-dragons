@@ -1,0 +1,42 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+
+.title {
+  font-weight: 700;
+  font-family: $secondary-font;
+  text-align: center;
+  position: relative;
+}
+
+.saving-throws {
+  flex: 1;
+}
+
+.item {
+  position: relative;
+  line-height: 30px;
+  font-weight: 700;
+  padding: 5px 0;
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 30px;
+    right: 0;
+    height: 1px;
+    background-color: lighten($primary-box-border-color, 10%);
+  }
+
+  &:nth-child(6n)::after {
+    display: none;
+  }
+}
+
+.value {
+  padding-right: 10px;
+}
+
+.name::first-letter {
+  text-transform: uppercase;
+}

@@ -9,7 +9,8 @@ const plugins = [
           '400': []
         },
         'Alegreya SC': {
-          '400': []
+          '400': [],
+          '700': []
         }
     },
     foundries: ['google']
