@@ -3,7 +3,6 @@ import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 import {browserHistory} from 'react-router';
 
-import {Header} from 'components/Header/Header';
 import {CreatePlayer} from 'components/Player/CreatePlayer/CreatePlayer';
 import {DeletePlayer} from 'components/Player/DeletePlayer/DeletePlayer';
 import {PlayerList} from 'components/Player/PlayerList/PlayerList';
@@ -58,7 +57,6 @@ export class Home extends React.Component<{
 
     return (
       <div>
-        <Header />
         <div className={styles.content}>
           <CreatePlayer onCreateClick={this.onCreateClick} />
           <h2>Players</h2>
