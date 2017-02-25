@@ -2,7 +2,6 @@ const {ctx} = require('./common');
 
 module.exports = {
   entry: {
-    data: `${ctx}/app/data/index.ts`,
     app: [
       'styles/main.scss',
       `${ctx}/app/index.tsx`

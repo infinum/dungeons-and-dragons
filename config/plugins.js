@@ -13,7 +13,10 @@ module.exports = [
       return typeof userRequest === 'string' && userRequest.includes('node_modules');
     }
   }),
-  new OfflinePlugin(),
+  new OfflinePlugin({
+    publicPath: '/',
+    AppCache: false
+  }),
   new HtmlWebpackPlugin({
     title: 'Dungeons & Dragons',
     filename: 'index.html',
