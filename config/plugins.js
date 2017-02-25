@@ -13,13 +13,13 @@ module.exports = [
       return typeof userRequest === 'string' && userRequest.includes('node_modules');
     }
   }),
-  new webpack.optimize.CommonsChunkPlugin({name: 'mainfest'}),
   new OfflinePlugin(),
   new HtmlWebpackPlugin({
     title: 'Dungeons & Dragons',
     filename: 'index.html',
     template: `!!html-loader!${ctx}/app/index.html`,
     chunksSortMode: 'dependency',
+    excludeChunks: ['data'],
     inject: true
   }),
   new webpack.LoaderOptionsPlugin({

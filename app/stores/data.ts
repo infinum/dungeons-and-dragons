@@ -3,28 +3,23 @@ import {Collection} from 'mobx-collection-store';
 import models from 'enums/models';
 import {loadTypeModels} from 'services/persistance';
 
-import alignments from 'data/alignments';
-import backgrounds from 'data/backgrounds';
-import classes from 'data/classes';
-import levels from 'data/levels';
-import races from 'data/races';
-import spells from 'data/spells';
-import statTypes from 'data/statTypes';
+export function initStatic(data: Collection): void {
+  (require as any).ensure(['data'], () => {
+    const stats = require('data');
+    data.add(stats.alignments, models.ALIGNMENT);
+    data.add(stats.backgrounds, models.BACKGROUND);
+    data.add(stats.classes, models.CLASS);
+    data.add(stats.levels, models.LEVEL);
+    data.add(stats.races, models.RACE);
+    data.add(stats.spells, models.SPELL);
+    data.add(stats.statTypes, models.STAT_TYPE);
+  });
+};
 
 const modelsToHydrate = [
   models.PLAYER,
   models.STAT,
 ];
-
-export function initStatic(data: Collection): void {
-  data.add(alignments, models.ALIGNMENT);
-  data.add(backgrounds, models.BACKGROUND);
-  data.add(classes, models.CLASS);
-  data.add(levels, models.LEVEL);
-  data.add(races, models.RACE);
-  data.add(spells, models.SPELL);
-  data.add(statTypes, models.STAT_TYPE);
-};
 
 export function hydrate(data: Collection): void {
   modelsToHydrate.forEach((type) => {

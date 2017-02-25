@@ -37,7 +37,7 @@ export class BasicForm extends React.Component<{
           />
 
           <span className={styles.level}>
-            Level {basic.level.toString()}
+            Level {basic.level && basic.level.toString()}
           </span>
         </div>
 
