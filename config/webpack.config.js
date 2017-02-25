@@ -20,7 +20,11 @@ const config = {
       `${ctx}/app/styles`,
       'node_modules'
     ],
-    extensions: ['.js', '.ts', '.tsx', '.scss', '.css', '.json']
+    extensions: ['.js', '.ts', '.tsx', '.scss', '.css', '.json'],
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat'
+    }
   },
   performance: {
     hints: DEV ? false : 'warning'

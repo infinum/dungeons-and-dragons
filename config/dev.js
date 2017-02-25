@@ -25,8 +25,8 @@ module.exports = {
     if (DEV) {
       config.entry.app.unshift(
         'webpack-dev-server/client',
-        'webpack/hot/only-dev-server',
-        'react-hot-loader/patch'
+        'webpack/hot/only-dev-server'//,
+        // 'react-hot-loader/patch'
       );
       config.plugins.push(
         new webpack.optimize.OccurrenceOrderPlugin(),
