@@ -24,12 +24,12 @@ export const PlayerItem = ({
         type='linear'
         mode='determinate'
         value={+player.experience}
-        max={player.nextLevel.exp}
+        max={player.nextLevel && player.nextLevel.exp}
       />
       <CardTitle>{player.name}</CardTitle>
       <CardText>
-        {player.alignment.name} {player.race.name}<br />
-        Level {player.level.toString()}, {player.experience} EXP
+        {player.alignment && player.alignment.name} {player.race && player.race.name}<br />
+        Level {player.level && player.level.toString()}, {player.experience} EXP
       </CardText>
       <CardActions>
         <Link to={`/player/${player.id}`}>

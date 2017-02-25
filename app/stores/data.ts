@@ -4,7 +4,8 @@ import models from 'enums/models';
 import {loadTypeModels} from 'services/persistance';
 
 export function initStatic(data: Collection): void {
-  (require as any).ensure(['data'], () => {
+  // tslint:disable-next-line:only-arrow-functions
+  (require as any).ensure(['data'], function() {
     const stats = require('data');
     data.add(stats.alignments, models.ALIGNMENT);
     data.add(stats.backgrounds, models.BACKGROUND);
