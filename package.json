@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "deploy": "yarn build && scp -r dist/ ubuntu@dnd.hakni.me:/www/dnd.hakni.me/",
+    "deploy": "yarn build && scp -r dist/. ubuntu@dnd.hakni.me:/www/dnd.hakni.me/",
     "start": "npm run dev",
     "dev": "NODE_ENV=development nodemon -i node_modules -x webpack-dev-server",
     "build": "NODE_ENV=production webpack",
