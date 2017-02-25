@@ -1,5 +1,5 @@
 import {action, observable} from 'mobx';
-import {observer} from 'mobx-react';
+import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 import {browserHistory} from 'react-router';
 
@@ -8,13 +8,16 @@ import {CreatePlayer} from 'components/Player/CreatePlayer/CreatePlayer';
 import {DeletePlayer} from 'components/Player/DeletePlayer/DeletePlayer';
 import {PlayerList} from 'components/Player/PlayerList/PlayerList';
 import models from 'enums/models';
-import {data} from 'stores';
+import {DataCollection} from 'stores/DataCollection';
 import {Player} from 'stores/models';
 
 import * as styles from './Home.scss';
 
+@inject('data')
 @observer
-export class Home extends React.Component<{}, {}> {
+export class Home extends React.Component<{
+  data: DataCollection;
+}, {}> {
   public state: {playerForDeletion: Player};
 
   constructor(props) {
@@ -31,7 +34,7 @@ export class Home extends React.Component<{}, {}> {
   }
 
   public onCreateClick() {
-    const model = data.add<Player>({}, models.PLAYER);
+    const model = this.props.data.add<Player>({}, models.PLAYER);
     browserHistory.push(`/player/${model.id}`);
   }
 
@@ -41,7 +44,7 @@ export class Home extends React.Component<{}, {}> {
 
   @action public onDeleteConfirm() {
     const player = this.state.playerForDeletion as Player;
-    data.remove(player.static.type, player.id);
+    this.props.data.remove(player.static.type, player.id);
     this.state.playerForDeletion = null;
   }
 
@@ -51,7 +54,7 @@ export class Home extends React.Component<{}, {}> {
 
   public render() {
 
-    const players = data.player.filter((player) => player.name);
+    const players = this.props.data.player.filter((player) => player.name);
 
     return (
       <div>

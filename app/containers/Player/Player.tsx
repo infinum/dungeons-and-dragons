@@ -1,4 +1,4 @@
-import {observer} from 'mobx-react';
+import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 
 import {AppearanceForm} from 'components/forms/Appearance/Appearance';
@@ -7,29 +7,36 @@ import {StatsForm} from 'components/forms/Stats/Stats';
 import {Header} from 'components/Header/Header';
 
 import models from 'enums/models';
-import {data} from 'stores';
+import {DataCollection} from 'stores/DataCollection';
 import {Player as PlayerModel} from 'stores/models';
 import {transformForDropdown} from 'utils/dropdownSource';
 
 import * as styles from './Player.scss';
 
+@inject('data')
 @observer
 export class Player extends React.Component<{
   params: {id: string};
+  data: DataCollection;
 }, {}> {
   public player: PlayerModel;
 
   constructor(props) {
     super(props);
+
+    const {data} = props;
+    const playerId = parseInt(props.params.id, 10);
+
     this.onStatChange = this.onStatChange.bind(this);
-    this.player = data.find<PlayerModel>(models.PLAYER, parseInt(props.params.id, 10));
+    this.player = data.find(models.PLAYER, playerId) as PlayerModel;
   }
 
-  public onStatChange(stat) {
+  public onStatChange(stat: string) {
     return (value) => this.player.stats[stat] = value;
   }
 
   public render() {
+    const {data} = this.props;
 
     if (!this.player) {
       return <h1>Not found!</h1>;
