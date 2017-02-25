@@ -74,6 +74,7 @@ export default [{
   description: 'Half-Elves have curiosity and ambitions like humans but they have sense for magic and love for nature like their elven parents.',
   id: 'half-elf',
   name: 'Half-elf',
+  speed: 30,
   subraces: [],
 }, {
   description: 'Most tieflings prefer to be adventurers and rarely ever adventure with their own kin due to the prejudices of other races (people are concerned when two or more of their kind travel together).',

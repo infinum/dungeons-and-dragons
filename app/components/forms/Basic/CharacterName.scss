@@ -1,13 +1,10 @@
+@import '../../../styles/colors';
+
 .label {
   display: none;
 }
 
-.bar::before {
-  width: 20%;
-  left: 0;
-  height: 3px;
-}
-
+.bar::before,
 .bar::after {
   display: none;
 }
@@ -15,4 +12,18 @@
 .input .inputElement {
   font-size: 40px;
   font-weight: 400;
+}
+
+.input {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 20px;
+    right: 0;
+    bottom: 20px;
+    border-right: 2px solid $base-white-color;
+  }
 }

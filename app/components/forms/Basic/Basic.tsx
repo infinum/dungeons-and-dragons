@@ -25,21 +25,21 @@ export class BasicForm extends React.Component<{
     return (
       <section>
 
-        <Input
-          type='text'
-          label='Name'
-          value={basic.name}
-          onChange={basic.setValue('name')}
-          className={styles.characterName}
-          theme={characterName}
-        />
+        <div className={styles.header}>
+          <Input
+            type='text'
+            label='Name'
+            value={basic.name}
+            onChange={basic.setValue('name')}
+            className={styles.characterName}
+            theme={characterName}
+            style={{width: basic.name.length * 25}}
+          />
 
-        <Input
-          type='text'
-          label='Level'
-          value={basic.level.toString()}
-          disabled={true}
-        />
+          <span className={styles.level}>
+            Level {basic.level.toString()}
+          </span>
+        </div>
 
         <div className={styles.columns}>
           <div>
