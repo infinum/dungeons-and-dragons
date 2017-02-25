@@ -1,0 +1,23 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+
+.infoBox {
+  text-align: center;
+}
+
+.infoValue {
+  border: 1px solid $primary-box-border-color;
+  border-radius: 2px;
+  background-color: $primary-box-color;
+  width: 80px;
+  font-size: 40px;
+  font-family: $secondary-font;
+  font-weight: 700;
+  padding: 5px 0 15px;
+  margin: auto;
+}
+
+.infoTitle {
+  font-family: $secondary-font;
+  margin-top: 10px;
+}

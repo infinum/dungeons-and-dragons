@@ -5,6 +5,7 @@ import * as React from 'react';
 import Input from 'react-toolbox/lib/input';
 
 import {Box} from 'components/common/Box/Box';
+import {Info} from 'components/forms/Info/Info';
 import {SavingThrows} from 'components/forms/SavingThrows/SavingThrows';
 import {Skills} from 'components/forms/Skills/Skills';
 import {StatItem} from 'components/StatItem/StatItem';
@@ -22,9 +23,7 @@ export class StatsForm extends React.Component<{
     const {onChange, player} = this.props;
     return (
       <section>
-        <h2>Stats</h2>
-
-        <div className={styles.grid}>
+        <div className={styles.stats}>
           <StatItem
             player={player}
             id='strength'
@@ -61,6 +60,7 @@ export class StatsForm extends React.Component<{
             name='Charisma'
             onChange={onChange}
           />
+          <Info className={styles.passiveBox} value={player.passivePerception} name='Passive per.' />
         </div>
 
         <div className={styles.stats}>

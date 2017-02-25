@@ -4,6 +4,7 @@ import Dropdown from 'react-toolbox/lib/dropdown';
 import Input from 'react-toolbox/lib/input';
 
 import {Box} from 'components/common/Box/Box';
+import {Info} from 'components/forms/Info/Info';
 import {IBasic, IFormField} from 'interfaces';
 import {DropdownSource} from 'utils/dropdownSource';
 
@@ -33,62 +34,78 @@ export class BasicForm extends React.Component<{
           theme={characterName}
         />
 
-        <Box>
-          <div className={styles.grid}>
+        <Input
+          type='text'
+          label='Level'
+          value={basic.level.toString()}
+          disabled={true}
+        />
 
-            <Dropdown
-              label='Class'
-              value={basic.classId}
-              source={classes}
-              onChange={basic.setValue('class')}
-            />
+        <div className={styles.columns}>
+          <div>
+            <Box>
+              <div className={styles.grid}>
+                <Dropdown
+                  label='Class'
+                  value={basic.classId}
+                  source={classes}
+                  onChange={basic.setValue('class')}
+                />
+                <Dropdown
+                  label='Alignment'
+                  value={basic.alignmentId}
+                  source={alignments}
+                  onChange={basic.setValue('alignment')}
+                />
+                <Input
+                  type='number'
+                  label='Exp. points'
+                  value={basic.experience}
+                  onChange={basic.setValue('experience')}
+                />
 
-            <Input
-              type='text'
-              label='Level'
-              value={basic.level.toString()}
-              disabled={true}
-            />
-
-            <Dropdown
-              label='Background'
-              value={basic.backgroundId}
-              source={backgrounds}
-              onChange={basic.setValue('background')}
-            />
-            <Input
-              type='text'
-              label='Player name'
-              value={basic.playerName}
-              onChange={basic.setValue('playerName')}
-            />
-
-            <Dropdown
-              label='Race'
-              value={basic.raceId}
-              source={races}
-              onChange={basic.setValue('race')}
-            />
-            <Dropdown
-              label='Alignment'
-              value={basic.alignmentId}
-              source={alignments}
-              onChange={basic.setValue('alignment')}
-            />
-            <Input
-              type='number'
-              label='Exp'
-              value={basic.experience}
-              onChange={basic.setValue('experience')}
-            />
-            <Dropdown
-              label='Subrace'
-              value={basic.subrace && basic.subrace.id}
-              source={subraces}
-              onChange={basic.setValue('subrace')}
-            />
+                <Dropdown
+                  label='Background'
+                  value={basic.backgroundId}
+                  source={backgrounds}
+                  onChange={basic.setValue('background')}
+                />
+                {/*<Input
+                  type='text'
+                  label='Player name'
+                  value={basic.playerName}
+                  onChange={basic.setValue('playerName')}
+                />*/}
+                <Dropdown
+                  label='Race'
+                  value={basic.raceId}
+                  source={races}
+                  onChange={basic.setValue('race')}
+                />
+                <Dropdown
+                  label='Subrace'
+                  value={basic.subrace && basic.subrace.id}
+                  source={subraces}
+                  onChange={basic.setValue('subrace')}
+                />
+              </div>
+            </Box>
+            <Box className={styles.proficiency}>
+              <div className={styles.proficiencyValue}>
+                {basic.proficiencyBonus}
+              </div>
+              <div>Proficiency bonus</div>
+              <div className={styles.inspiration}>
+                <input type='checkbox' disabled checked={basic.inspiration} />
+                <label />
+                Inspiration
+              </div>
+            </Box>
           </div>
-        </Box>
+          <div>
+            <Info name='Speed' value={basic.race && basic.race.speed} />
+          </div>
+        </div>
       </section>
     );
   }

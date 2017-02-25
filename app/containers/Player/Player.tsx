@@ -58,7 +58,7 @@ export class Player extends React.Component<{
             races={races}
             subraces={subraces}
           />
-          <AppearanceForm appearance={this.player} />
+          {/*<AppearanceForm appearance={this.player} />*/}
           <StatsForm
             player={this.player}
             onChange={this.onStatChange}

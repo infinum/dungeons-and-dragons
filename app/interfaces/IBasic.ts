@@ -17,4 +17,6 @@ export interface IBasic {
   experience?: number;
   stats: IStats;
   subrace?: SubRace;
+  proficiencyBonus: number;
+  inspiration: boolean;
 };

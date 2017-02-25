@@ -1,6 +1,5 @@
 import {observer} from 'mobx-react';
 import * as React from 'react';
-import Input from 'react-toolbox/lib/input';
 
 import {Player} from 'stores/models';
 
@@ -17,14 +16,22 @@ export class StatItem extends React.Component<{
     const {name, id, onChange, player} = this.props;
     return (
       <div className={styles.main}>
-        <h3>{name}</h3>
-        <Input
-          type='number'
-          label='Value'
-          value={player.stats[id]}
-          onChange={onChange(id)}
-        />
-        <div>Modifier: {player.modifiers[id]}</div>
+        <div className={styles.shield}>
+          <input
+            className={styles.input}
+            type='number'
+            value={player.stats[id]}
+            onChange={onChange(id)}
+          />
+          <div className={styles.modifier}>
+            {
+              player.modifiers[id] < 0
+                ? player.modifiers[id]
+                : `+${player.modifiers[id]}`
+            }
+          </div>
+        </div>
+        <div className={styles.title}>{name}</div>
       </div>
     );
   }

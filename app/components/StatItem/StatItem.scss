@@ -1,5 +1,50 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
 .main {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.input {
+  background: transparent;
+  color: $primary-text-color;
+  border: none;
+  width: 70px;
+  font-size: 40px;
+  font-family: $secondary-font;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid $primary-box-border-color;
+  margin: 5px auto;
+  padding: 5px 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.modifier {
+  margin: 0 auto 15px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: $secondary-font;
+}
+
+.shield {
+  margin: auto;
+  width: 80px;
+  border: 1px solid $primary-box-border-color;
+  border-radius: 2px 2px 40px 40px;
+  background-color: $primary-box-color;
+}
+
+.title {
+  font-family: $secondary-font;
+  margin-top: 10px;
 }

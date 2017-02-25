@@ -31,6 +31,7 @@ export class Player extends FormModel implements IBasic, IAppearance {
     class: '',
     experience: 0,
     height: '',
+    inspiration: false,
     name: '',
     playerName: '',
     race: '',
@@ -66,6 +67,8 @@ export class Player extends FormModel implements IBasic, IAppearance {
   public height?: string;
   public weight?: string;
   public sex?: string;
+
+  public inspiration: boolean;
 
   public stats: IStats;
   public subrace: SubRace;
@@ -155,6 +158,14 @@ export class Player extends FormModel implements IBasic, IAppearance {
     }
 
     return proficiencies;
+  }
+
+  @computed get passivePerception(): number {
+    return this.stats.wisdom;
+  }
+
+  @computed get proficiencyBonus(): number {
+    return this.modifiers.dexterity;
   }
 
   private __getSavingThrowBonus(name) {
