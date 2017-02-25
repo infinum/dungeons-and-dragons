@@ -1,8 +1,5 @@
 import {inject, observer} from 'mobx-react';
 import * as React from 'react';
-import {Link} from 'react-router';
-import AppBar from 'react-toolbox/lib/app_bar';
-import {Button} from 'react-toolbox/lib/button';
 
 import {AppLogo} from 'components/AppLogo/AppLogo';
 import {PlayerPicker} from 'components/PlayerPicker/PlayerPicker';

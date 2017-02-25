@@ -15,7 +15,7 @@ import * as styles from './Player.scss';
 @inject('data')
 @observer
 export class Player extends React.Component<{
-  params: {id: string};
+  params: Array<any>
   data: DataCollection;
 }, {}> {
   public player: PlayerModel;
@@ -24,7 +24,7 @@ export class Player extends React.Component<{
     super(props);
 
     const {data} = props;
-    const playerId = parseInt(props.params.id, 10);
+    const playerId = parseInt(props.params[1], 10);
 
     this.onStatChange = this.onStatChange.bind(this);
     this.player = data.find(models.PLAYER, playerId) as PlayerModel;

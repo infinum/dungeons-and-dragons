@@ -7,6 +7,7 @@ const OfflinePlugin = require('offline-plugin');
 const {ctx, DEV} = require('./common');
 
 module.exports = [
+  new LodashModuleReplacementPlugin(),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
     minChunks({userRequest}) {
@@ -33,7 +34,6 @@ module.exports = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     }
   }),
-  new LodashModuleReplacementPlugin(),
   new ExtractTextPlugin({
     allChunks: true,
     filename: 'styles-[contenthash].css',

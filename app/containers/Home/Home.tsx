@@ -1,7 +1,7 @@
 import {action, observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
 import * as React from 'react';
-import {browserHistory} from 'react-router';
+import {browserHistory} from 'utils/router';
 
 import {CreatePlayer} from 'components/Player/CreatePlayer/CreatePlayer';
 import {DeletePlayer} from 'components/Player/DeletePlayer/DeletePlayer';
@@ -16,6 +16,7 @@ import * as styles from './Home.scss';
 @observer
 export class Home extends React.Component<{
   data: DataCollection;
+  params: Array<any>;
 }, {}> {
   public state: {playerForDeletion: Player};
 

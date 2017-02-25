@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import 'manifest.json';
 require('offline-plugin/runtime').install();
 
+import {action, observable} from 'mobx';
 import * as React from 'react';
 import {render} from 'react-dom';
 // import {AppContainer} from 'react-hot-loader';
@@ -12,11 +13,19 @@ import {data, keys} from 'stores';
 import {debugVars} from 'utils/debug';
 import Theme from 'utils/Theme';
 
-debugVars({data, keys});
+const location = observable({
+  pathname: window.location.pathname,
+});
+
+debugVars({data, keys, location});
+
+window.addEventListener('popstate', action(() => {
+  location.pathname = window.location.pathname;
+}));
 
 function init() {
   const Client = require('./client').default;
-  render(<Client />, document.querySelector('.app'));
+  render(<Client location={location} />, document.querySelector('.app'));
 }
 
 init();

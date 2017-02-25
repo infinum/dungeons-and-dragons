@@ -1,11 +1,11 @@
 import * as classnames from 'classnames';
-import {map} from 'lodash';
 import {IObservableObject, observable} from 'mobx';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 
 import {Box} from 'components/common/Box/Box';
 import {Player} from 'stores/models';
+import {map} from 'utils/helpers';
 
 import * as styles from './Skills.scss';
 
@@ -40,7 +40,7 @@ export class Skills extends React.Component<{
         </h4>
         <div className={styles.container}>
           {
-            map(player.skills, (value, key) => (
+            map(player.skills, (value, key: string) => (
               <div key={key} className={classnames(
                 styles.item,
                 {

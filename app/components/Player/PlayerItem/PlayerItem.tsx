@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Link} from 'react-router';
 import {Button} from 'react-toolbox/lib/button';
 import {Card, CardActions, CardMedia, CardText, CardTitle} from 'react-toolbox/lib/card';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
 
 import {Player} from 'stores/models';
+import {Link} from 'utils/router';
 
 import * as placeholder from 'images/character-placeholder.jpg';
 import * as styles from './PlayerItem.scss';

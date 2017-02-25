@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Button} from 'react-toolbox/lib/button';
 import Dialog from 'react-toolbox/lib/dialog';
 
 import {Player} from 'stores/models';

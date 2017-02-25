@@ -1,5 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyPlugin = require('uglifyjs-webpack-plugin');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const {ctx, DEV} = require('./common');
 
@@ -18,6 +19,7 @@ module.exports = {
           },
           comments: false
         })
+        // ,new BundleAnalyzerPlugin()
       ];
     }
   }

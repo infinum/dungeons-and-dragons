@@ -5,16 +5,21 @@ import Theme from 'utils/Theme';
 
 import * as store from 'stores';
 
-let app = <AppRouter store={store} />;
-
 /// #if DEV
 import DevTools from 'mobx-react-devtools';
-app = (
-  <div>
-    <AppRouter store={store} />
-    <DevTools />
-  </div>
-);
 /// #endif
 
-export default () => (<Theme>{app}</Theme>);
+export default ({location}: {location: Object}) => {
+  let app = <AppRouter store={store} location={location} />;
+
+  /// #if DEV
+  app = (
+    <div>
+      <AppRouter store={store} location={location} />
+      <DevTools />
+    </div>
+  );
+  /// #endif
+
+  return <Theme>{app}</Theme>;
+};

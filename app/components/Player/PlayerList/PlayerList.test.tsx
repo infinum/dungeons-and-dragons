@@ -1,7 +1,6 @@
 import * as chai from 'chai';
 import * as chaiEnzyme from 'chai-enzyme';
 import {render} from 'enzyme';
-import {noop} from 'lodash';
 import {DataCollection} from 'stores/DataCollection';
 
 chai.use(chaiEnzyme());

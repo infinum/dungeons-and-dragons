@@ -1,10 +1,10 @@
 import * as classnames from 'classnames';
-import {map} from 'lodash';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 
 import {Box} from 'components/common/Box/Box';
 import {Player} from 'stores/models';
+import {map} from 'utils/helpers';
 
 import * as styles from './SavingThrows.scss';
 
@@ -21,7 +21,7 @@ export class SavingThrows extends React.Component<{
         <h4 className={styles.title}>Saving throws (WIP)</h4>
         <div>
           {
-            map(player.savingThrows, (value, key) => (
+            map(player.savingThrows, (value, key: string) => (
               <div key={key} className={styles.item}>
                 <input
                   type='checkbox'

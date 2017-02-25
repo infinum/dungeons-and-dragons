@@ -10,7 +10,7 @@ import {Player as PlayerModel} from 'stores/models';
 @observer
 export class Layout extends React.Component<{
   params: {id: string};
-  children: JSX.Element;
+  children?: JSX.Element;
 }, {}> {
   public render() {
     return (
