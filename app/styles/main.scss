@@ -1,4 +1,16 @@
 @import '~normalize.css';
+@import 'colors';
+@import 'fonts';
+
+@keyframes background-scroll {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
 
 html { // stylelint-disable-line
   font-size: 62.5%;
@@ -6,4 +18,21 @@ html { // stylelint-disable-line
 
 body { // stylelint-disable-line
   font-size: 160%; // 1 / 62.5%
+  font-family: $primary-font;
+
+  color: $primary-text-color;
+
+  background-color: $primary-background-color;
+  background-image: linear-gradient(-45deg, $primary-background-color 0%, $secondary-background-color 100%);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-name: background-scroll;
+  animation-timing-function: linear;
+}
+
+h2 {
+  font-family: $secondary-font;
 }

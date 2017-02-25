@@ -15,7 +15,11 @@ const config = {
   devtool,
   module: {rules},
   resolve: {
-    modules: [`${ctx}/app`, 'node_modules'],
+    modules: [
+      `${ctx}/app`,
+      `${ctx}/app/styles`,
+      'node_modules'
+    ],
     extensions: ['.js', '.ts', '.tsx', '.scss', '.css', '.json']
   },
   performance: {

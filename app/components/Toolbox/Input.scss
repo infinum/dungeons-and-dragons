@@ -1,0 +1,42 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+.label {
+  color: $primary-text-color;
+  font-family: $secondary-font;
+  font-size: 1.4rem;
+  top: auto;
+  bottom: 0.5rem;
+
+  .inputElement.filled ~ &:not(.fixed),
+  .inputElement ~ &:not(.fixed) {
+    top: auto;
+    bottom: 0.5rem;
+    color: $primary-text-color;
+    font-size: 1.4rem;
+  }
+
+  .inputElement.filled:focus:not([disabled]):not([readonly]) ~ &:not(.fixed),
+  .inputElement:focus:not([disabled]):not([readonly]) ~ &:not(.fixed) {
+    top: auto;
+    bottom: 0.5rem;
+    color: $primary-text-color;
+    font-size: 1.2rem;
+  }
+}
+
+.input {
+  color: $primary-text-color;
+}
+
+.inputElement {
+  font-family: $secondary-font;
+  color: $primary-text-color;
+  padding: 0.2rem 0;
+  font-size: 2rem;
+}
+
+.bar::before, .bar::after {
+  background-color: $primary-text-color;
+  width: 50%;
+}

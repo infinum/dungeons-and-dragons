@@ -19,7 +19,7 @@ const globalStyleLoaders = ExtractTextPlugin.extract({
     loader: 'css-loader',
     query: {
       sourceMap: DEV,
-      importLoaders: 2,
+      importLoaders: 1,
       root: `${ctx}/app`
     }
   }, ...commonStyleLoaders]
@@ -32,7 +32,7 @@ const localStyleLoaders = ExtractTextPlugin.extract({
     query: {
       sourceMap: DEV,
       modules: true,
-      importLoaders: 2,
+      importLoaders: 1,
       localIdentName: DEV ? '[name]__[local]--[hash:base64:5]' : '[hash:base64:5]',
       camelCase: true,
       root: `${ctx}/app`

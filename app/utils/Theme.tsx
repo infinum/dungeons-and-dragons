@@ -3,12 +3,16 @@ import {ThemeProvider} from 'react-css-themr';
 
 import * as RTCard from 'components/Toolbox/Card.scss';
 import * as RTDialog from 'components/Toolbox/Dialog.scss';
+import * as RTDropdown from 'components/Toolbox/Dropdown.scss';
+import * as RTInput from 'components/Toolbox/Input.scss';
 import * as RTProgressBar from 'components/Toolbox/ProgressBar.scss';
 import * as RTTooltip from 'components/Toolbox/Tooltip.scss';
 
 const theme = {
   RTCard,
   RTDialog,
+  RTDropdown,
+  RTInput,
   RTProgressBar,
   RTTooltip,
 };

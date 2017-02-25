@@ -4,7 +4,6 @@ import * as React from 'react';
 import {AppearanceForm} from 'components/forms/Appearance/Appearance';
 import {BasicForm} from 'components/forms/Basic/Basic';
 import {StatsForm} from 'components/forms/Stats/Stats';
-import {Header} from 'components/Header/Header';
 
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
@@ -50,7 +49,6 @@ export class Player extends React.Component<{
 
     return (
       <div>
-        <Header />
         <div className={styles.content}>
           <BasicForm
             alignments={alignments}
