@@ -33,7 +33,6 @@ export class BasicForm extends React.Component<{
             onChange={basic.setValue('name')}
             className={styles.characterName}
             theme={characterName}
-            style={{width: basic.name.length * 25}}
           />
 
           <span className={styles.level}>
