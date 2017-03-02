@@ -1,0 +1,5 @@
+last 2 versions
+Android >= 5
+not ie < 11
+not safari < 9
+not iOS < 9
