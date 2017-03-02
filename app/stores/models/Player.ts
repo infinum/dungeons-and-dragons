@@ -165,7 +165,7 @@ export class Player extends FormModel implements IBasic, IAppearance {
   }
 
   @computed get proficiencyBonus(): number {
-    return this.modifiers.dexterity;
+    return this.level ? this.level.proficiency : 0;
   }
 
   private __getSavingThrowBonus(name) {
