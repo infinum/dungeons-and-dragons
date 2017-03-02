@@ -9,13 +9,13 @@ export const browserHistory = {
   },
 };
 
-export function Link({to, children}: {to: string, children?: any}) {
+export function Link({to, children, className}: {to: string, children?: any, className?: string}) {
     const onClick = (event) => {
       event.preventDefault();
       browserHistory.push(to);
     };
 
-    return <a href={to} onClick={onClick}>{children}</a>;
+    return <a href={to} onClick={onClick} className={className}>{children}</a>;
 }
 
 function matchPath(path, pathname) {

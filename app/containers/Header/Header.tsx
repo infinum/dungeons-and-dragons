@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import {AppLogo} from 'components/AppLogo/AppLogo';
 import {PlayerPicker} from 'components/PlayerPicker/PlayerPicker';
+import {Link} from 'utils/router';
 
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
@@ -30,7 +31,9 @@ export class Header extends React.Component<{
   public render() {
     return (
       <div className={styles.main}>
-        <AppLogo />
+        <Link to='/' className={styles.logoLink}>
+          <AppLogo />
+        </Link>
         <PlayerPicker player={this.player} />
       </div>
     );
