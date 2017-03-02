@@ -41,25 +41,28 @@ export class BasicForm extends React.Component<{
         </div>
 
         <div className={styles.columns}>
-          <div>
+          <div className={styles.leftForm}>
             <Box>
               <div className={styles.grid}>
                 <Dropdown
                   label='Class'
                   value={basic.classId}
                   source={classes}
+                  className={styles.inputItem}
                   onChange={basic.setValue('class')}
                 />
                 <Dropdown
                   label='Alignment'
                   value={basic.alignmentId}
                   source={alignments}
+                  className={styles.inputItem}
                   onChange={basic.setValue('alignment')}
                 />
                 <Input
                   type='number'
                   label='Exp. points'
                   value={basic.experience}
+                  className={styles.inputItem}
                   onChange={basic.setValue('experience')}
                 />
 
@@ -67,6 +70,7 @@ export class BasicForm extends React.Component<{
                   label='Background'
                   value={basic.backgroundId}
                   source={backgrounds}
+                  className={styles.inputItem}
                   onChange={basic.setValue('background')}
                 />
                 {/*<Input
@@ -79,12 +83,14 @@ export class BasicForm extends React.Component<{
                   label='Race'
                   value={basic.raceId}
                   source={races}
+                  className={styles.inputItem}
                   onChange={basic.setValue('race')}
                 />
                 <Dropdown
                   label='Subrace'
                   value={basic.subrace && basic.subrace.id}
                   source={subraces}
+                  className={styles.inputItem}
                   onChange={basic.setValue('subrace')}
                 />
               </div>
@@ -101,7 +107,7 @@ export class BasicForm extends React.Component<{
               </div>
             </Box>
           </div>
-          <div>
+          <div className={styles.rightForm}>
             <Info name='Speed' value={basic.race && basic.race.speed} />
           </div>
         </div>
