@@ -31,7 +31,7 @@ export class Player extends React.Component<{
   }
 
   public onStatChange(stat: string) {
-    return (value) => this.player.stats[stat] = value;
+    return (e) => this.player.stats[stat] = e.target.value;
   }
 
   public render() {

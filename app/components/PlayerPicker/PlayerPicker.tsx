@@ -10,7 +10,7 @@ export class PlayerPicker extends React.Component<{
   player: PlayerModel;
 }, {}> {
   public render() {
-    return this.props.player.name
+    return (this.props.player && this.props.player.name)
       ? (
         <div className={styles.main}>
           <h5 className={styles.action}>
