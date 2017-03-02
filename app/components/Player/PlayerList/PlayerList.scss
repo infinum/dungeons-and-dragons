@@ -1,14 +1,9 @@
 @import '~media-blender';
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: nowrap;
   margin: 0;
   padding: 0;
   list-style-type: none;
-
-  @include media(tablet up) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
-  }
 }

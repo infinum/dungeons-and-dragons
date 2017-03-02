@@ -1,14 +1,6 @@
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-
-  grid-gap: 10px;
-}
-
 .stats {
   display: flex;
   padding-top: 32px;
@@ -21,5 +13,5 @@
 }
 
 .passiveBox {
-  flex: 1;
+  flex: 1 0;
 }

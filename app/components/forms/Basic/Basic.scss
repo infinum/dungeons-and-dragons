@@ -1,15 +1,26 @@
 @import '../../../styles/fonts';
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
 }
 
 .columns {
-  display: grid;
-  grid-template-columns: 6fr 5fr;
-  grid-gap: 10px;
+  display: flex;
+}
+
+.rightForm {
+  flex: 1 0;
+}
+
+.leftForm {
+  flex: 2;
+}
+
+.inputItem {
+  margin: 0 10px;
+  max-width: 170px;
 }
 
 .level {
@@ -60,7 +71,7 @@
 }
 
 .inspiration {
-  flex: 1;
+  flex: 1 0;
   text-align: right;
 }
 
