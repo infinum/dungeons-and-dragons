@@ -17,9 +17,10 @@
   color: $primary-text-color;
 }
 
-.input {
+html .input { // This is stupid...
   position: relative;
   display: inline-block;
+  max-width: initial;
 
   &::after {
     position: absolute;

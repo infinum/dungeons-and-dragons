@@ -18,4 +18,16 @@ storiesOf('Header', module)
     });
     return <Header character={character} />;
   })
+  .add('Wide name', () => {
+    const character = createCharacters({
+      name: 'MMMMMMMM',
+    });
+    return <Header character={character} />;
+  })
+  .add('Narrow name', () => {
+    const character = createCharacters({
+      name: 'iiiiiiii',
+    });
+    return <Header character={character} />;
+  })
 ;
