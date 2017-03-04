@@ -108,7 +108,7 @@ export class Player extends FormModel implements IBasic, IAppearance {
   }
 
   @computed public get savingThrows() {
-    const savingThrowns = {
+    const savingThrows = {
       charisma: this.modifiers.charisma,
       constitution: this.modifiers.constitution,
       dexterity: this.modifiers.dexterity,
@@ -117,7 +117,7 @@ export class Player extends FormModel implements IBasic, IAppearance {
       wisdom: this.modifiers.wisdom,
     };
 
-    return mapValues(savingThrowns, (value, key) => value + this.__getSavingThrowBonus(key));
+    return mapValues(savingThrows, (value, key) => value + this.__getSavingThrowBonus(key));
   }
 
   @computed public get savingThrowProficiencies() {
@@ -169,10 +169,10 @@ export class Player extends FormModel implements IBasic, IAppearance {
   }
 
   private __getSavingThrowBonus(name) {
-    return this.savingThrowProficiencies.indexOf(name) !== -1 ? 2 : 0;
+    return this.savingThrowProficiencies.indexOf(name) !== -1 ? this.proficiencyBonus : 0;
   }
 
   private __getSkillBonus(name) {
-    return this.skillProficiencies.indexOf(name) !== -1 ? 2 : 0;
+    return this.skillProficiencies.indexOf(name) !== -1 ? this.proficiencyBonus : 0;
   }
 }
