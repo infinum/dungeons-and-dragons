@@ -5,18 +5,15 @@ import {Checkbox} from './Checkbox';
 
 storiesOf('Checkbox', module)
   .add('Default View', () => {
-    return <Checkbox />;
+    return <Checkbox onClick={action('Change')} />;
   })
   .add('Disabled', () => {
-    return <Checkbox disabled />;
+    return <Checkbox disabled onClick={action('Change')} />;
   })
   .add('Checked', () => {
-    return <Checkbox checked />;
+    return <Checkbox checked onClick={action('Change')} />;
   })
   .add('Disabled checked', () => {
     return <Checkbox checked disabled />;
-  })
-  .add('Clickable', () => {
-    return <Checkbox onChange={() => alert('Clicked!')} />;
   })
 ;

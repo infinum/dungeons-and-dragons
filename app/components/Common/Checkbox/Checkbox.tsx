@@ -9,12 +9,12 @@ export const Checkbox = ({
   className,
   checked,
   disabled,
-  onChange,
+  onClick,
 }: {
   className?: string,
   checked?: boolean,
   disabled?: boolean,
-  onChange?: () => any,
+  onClick?: () => any,
 }) => (
   <div className={classnames(className, styles.main)}>
     <input
@@ -23,7 +23,7 @@ export const Checkbox = ({
       type='checkbox'
       checked={checked}
       disabled={disabled}
-      onChange={onChange}
+      onClick={onClick}
     />
     <label className={styles.label} {...{for: `checkbox_${counter}`}} />
   </div>

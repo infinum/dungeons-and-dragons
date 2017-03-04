@@ -1,3 +1,4 @@
+import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Button} from 'react-toolbox/lib/button';
 import {Card, CardActions, CardMedia, CardText, CardTitle} from 'react-toolbox/lib/card';
@@ -9,7 +10,7 @@ import {Link} from 'utils/router';
 import * as placeholder from 'images/character-placeholder.jpg';
 import * as styles from './CharacterItem.scss';
 
-export const CharacterItem = ({
+export const CharacterItem = observer(({
   onDeleteClick,
   character,
 }: {
@@ -39,4 +40,4 @@ export const CharacterItem = ({
       </CardActions>
     </Card>
   </li>
-);
+));

@@ -24,7 +24,7 @@ export const DeleteCharacter = ({
   >
     <b>Are you sure you want to delete the {character.name} character?</b>
     <p>
-      (level {character.level.toString()}, {character.experience} EXP)
+      (level {character.level && character.level.toString()}, {character.experience} EXP)
     </p>
   </Dialog>
 );

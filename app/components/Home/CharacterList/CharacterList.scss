@@ -2,8 +2,12 @@
 
 .grid {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   list-style-type: none;
+
+  > li {
+    margin: 16px 8px;
+  }
 }
