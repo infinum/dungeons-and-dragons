@@ -1,4 +1,5 @@
 @import '../../../styles/colors';
+@import '../../../styles/fonts';
 
 .label {
   display: none;
@@ -12,6 +13,8 @@
 .input .inputElement {
   font-size: 40px;
   font-weight: 400;
+  font-family: $secondary-font;
+  color: $primary-text-color;
 }
 
 .input {
