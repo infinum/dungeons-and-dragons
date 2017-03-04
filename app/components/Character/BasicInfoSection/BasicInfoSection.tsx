@@ -18,7 +18,7 @@ export const BasicInfoSection = ({
   character: Character;
 }) => (
   <section>
-    <Header character={character} />
+    <Header character={character} className={styles.header} />
 
     <div className={styles.columns}>
       <div className={styles.leftForm}>

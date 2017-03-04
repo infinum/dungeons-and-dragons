@@ -1,26 +1,44 @@
-@import '../../../styles/fonts';
 @import '~media-blender';
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
 
 .header {
   line-height: middle;
 }
 
 .character-name {
-  max-width: 300px;
+  font-size: 40px;
+  font-weight: 400;
+  font-family: $secondary-font;
+  color: $primary-text-color;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba($base-white-color, 0.1);
+  margin-right: 16px;
+
+  @include media(mobile down) {
+    display: block;
+    padding: 0 10px;
+    width: calc(100% - 20px) !important;
+    margin-right: 0;
+  }
 }
 
 .level {
   font-family: $secondary-font;
   font-size: 22px;
-  line-height: 90px;
-  height: 90px;
+  line-height: 56px;
+  height: 30px;
   display: inline-block;
   padding: 0 20px 15px;
+  border-left: 2px solid $base-white-color;
 
   @include media(mobile down) {
     display: block;
     height: 32px;
     line-height: 32px;
+    border-left: none;
+    padding-left: 10px;
   }
 }
 
