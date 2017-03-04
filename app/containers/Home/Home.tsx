@@ -3,12 +3,12 @@ import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 import {browserHistory} from 'utils/router';
 
-import {CreatePlayer} from 'components/Player/CreatePlayer/CreatePlayer';
-import {DeletePlayer} from 'components/Player/DeletePlayer/DeletePlayer';
-import {PlayerList} from 'components/Player/PlayerList/PlayerList';
+import {CharacterList} from 'components/Character/CharacterList/CharacterList';
+import {CreateCharacter} from 'components/Character/CreateCharacter/CreateCharacter';
+import {DeleteCharacter} from 'components/Character/DeleteCharacter/DeleteCharacter';
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
-import {Player} from 'stores/models';
+import {Character} from 'stores/models';
 
 import * as styles from './Home.scss';
 
@@ -18,13 +18,13 @@ export class Home extends React.Component<{
   data: DataCollection;
   params: Array<any>;
 }, {}> {
-  public state: {playerForDeletion: Player};
+  public state: {characterForDeletion: Character};
 
   constructor(props) {
     super(props);
 
     this.state = observable.object({
-      playerForDeletion: null,
+      characterForDeletion: null,
     });
 
     this.onCreateClick = this.onCreateClick.bind(this);
@@ -34,43 +34,43 @@ export class Home extends React.Component<{
   }
 
   public onCreateClick() {
-    const model = this.props.data.add<Player>({}, models.PLAYER);
-    browserHistory.push(`/player/${model.id}`);
+    const model = this.props.data.add<Character>({}, models.CHARACTER);
+    browserHistory.push(`/character/${model.id}`);
   }
 
-  @action public onDeleteClick(player: Player) {
-    this.state.playerForDeletion = player;
+  @action public onDeleteClick(character: Character) {
+    this.state.characterForDeletion = character;
   }
 
   @action public onDeleteConfirm() {
-    const player = this.state.playerForDeletion as Player;
-    this.props.data.remove(player.static.type, player.id);
-    this.state.playerForDeletion = null;
+    const character = this.state.characterForDeletion as Character;
+    this.props.data.remove(character.static.type, character.id);
+    this.state.characterForDeletion = null;
   }
 
   @action public onDeleteCancel() {
-    this.state.playerForDeletion = null;
+    this.state.characterForDeletion = null;
   }
 
   public render() {
 
-    const players = this.props.data.player.filter((player) => player.name);
+    const characters = this.props.data.character.filter((character) => character.name);
 
     return (
       <div>
         <div className={styles.content}>
-          <CreatePlayer onCreateClick={this.onCreateClick} />
-          <h2>Players</h2>
+          <CreateCharacter onCreateClick={this.onCreateClick} />
+          <h2>Characters</h2>
           {
-            players.length
-              ? <PlayerList players={players} onDeleteClick={this.onDeleteClick} />
-              : <h4>No players right now...</h4>
+            characters.length
+              ? <CharacterList characters={characters} onDeleteClick={this.onDeleteClick} />
+              : <h4>No characters right now...</h4>
           }
         </div>
         {
-          this.state.playerForDeletion
-            ? <DeletePlayer
-                player={this.state.playerForDeletion}
+          this.state.characterForDeletion
+            ? <DeleteCharacter
+                character={this.state.characterForDeletion}
                 onDeleteConfirm={this.onDeleteConfirm}
                 onDeleteCancel={this.onDeleteCancel}
               />

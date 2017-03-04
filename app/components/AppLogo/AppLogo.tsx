@@ -1,7 +1,7 @@
 import {observer} from 'mobx-react';
 import * as React from 'react';
 
-import {Player as PlayerModel} from 'stores/models';
+import {Character as PlayerModel} from 'stores/models';
 
 import * as styles from './AppLogo.scss';
 const logo = require('images/Logo/small.svg');

@@ -7,20 +7,20 @@ chai.use(chaiEnzyme());
 const expect = chai.expect;
 
 import * as React from 'react';
-import {Player} from 'stores/models';
-import {PlayerItem} from './PlayerItem';
+import {Character} from 'stores/models';
+import {CharacterItem} from './CharacterItem';
 
-describe('components/Player/PlayerItem', () => {
+describe('components/Character/CharacterItem', () => {
   it('should show the data', () => {
-    const player = new Player({
+    const character = new Character({
       id: 123,
       name: 'FooBar',
     });
 
     const collection = new DataCollection();
-    collection.add(player);
+    collection.add(character);
 
-    const wrapper = render(<PlayerItem player={player} />);
+    const wrapper = render(<CharacterItem character={character} />);
 
     expect(wrapper.find('li').length).to.equal(1);
     expect(wrapper.find('a').length).to.equal(1);

@@ -1,7 +1,7 @@
 import {observer} from 'mobx-react';
 import * as React from 'react';
 
-import {Player} from 'stores/models';
+import {Character} from 'stores/models';
 
 import * as styles from './StatItem.scss';
 
@@ -10,24 +10,24 @@ export class StatItem extends React.Component<{
   name: string,
   id: string,
   onChange: Function,
-  player: Player,
+  character: Character,
 }, {}> {
   public render() {
-    const {name, id, onChange, player} = this.props;
+    const {name, id, onChange, character} = this.props;
     return (
       <div className={styles.main}>
         <div className={styles.shield}>
           <input
             className={styles.input}
             type='number'
-            value={player.stats[id]}
+            value={character.stats[id]}
             onChange={onChange(id)}
           />
           <div className={styles.modifier}>
             {
-              player.modifiers[id] < 0
-                ? player.modifiers[id]
-                : `+${player.modifiers[id]}`
+              character.modifiers[id] < 0
+                ? character.modifiers[id]
+                : `+${character.modifiers[id]}`
             }
           </div>
         </div>

@@ -1,16 +1,16 @@
 import * as React from 'react';
 import Dialog from 'react-toolbox/lib/dialog';
 
-import {Player} from 'stores/models';
+import {Character} from 'stores/models';
 
-export const DeletePlayer = ({
+export const DeleteCharacter = ({
   onDeleteConfirm,
   onDeleteCancel,
-  player,
+  character,
 }: {
   onDeleteConfirm?: Function,
   onDeleteCancel?: Function,
-  player: Player,
+  character: Character,
 }) => (
   <Dialog
     title='Delete character?'
@@ -22,9 +22,9 @@ export const DeletePlayer = ({
       {label: 'Delete', onClick: onDeleteConfirm},
     ]}
   >
-    <b>Are you sure you want to delete the {player.name} character?</b>
+    <b>Are you sure you want to delete the {character.name} character?</b>
     <p>
-      (level {player.level.toString()}, {player.experience} EXP)
+      (level {character.level.toString()}, {character.experience} EXP)
     </p>
   </Dialog>
 );

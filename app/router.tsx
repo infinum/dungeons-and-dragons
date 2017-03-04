@@ -3,14 +3,14 @@ import * as React from 'react';
 // import {browserHistory, IndexRoute, Route, Router} from 'react-router';
 import {Router} from 'utils/router';
 
-import {Home, Layout, Player} from 'containers';
+import {Character, Home, Layout} from 'containers';
 
 export default ({store, location}) => (
   <Provider data={store.data} location={location}>
     <Router
       routes={{
         '/': [Layout, Home],
-        '/player/:id': [Layout, Player],
+        '/character/:id': [Layout, Character],
       }}
       location={location}
     />

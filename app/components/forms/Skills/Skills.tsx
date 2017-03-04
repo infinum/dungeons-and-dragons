@@ -4,14 +4,14 @@ import {observer} from 'mobx-react';
 import * as React from 'react';
 
 import {Box} from 'components/common/Box/Box';
-import {Player} from 'stores/models';
+import {Character} from 'stores/models';
 import {map} from 'utils/helpers';
 
 import * as styles from './Skills.scss';
 
 @observer
 export class Skills extends React.Component<{
-  player: Player;
+  character: Character;
 }, {}> {
 
   public stats: IObservableObject & {skillQuery: string} = observable.object({
@@ -25,7 +25,7 @@ export class Skills extends React.Component<{
   }
 
   public render() {
-    const {player} = this.props;
+    const {character} = this.props;
     return (
       <Box className={styles.skills}>
         <h4 className={styles.title}>
@@ -40,7 +40,7 @@ export class Skills extends React.Component<{
         </h4>
         <div className={styles.container}>
           {
-            map(player.skills, (value, key: string) => (
+            map(character.skills, (value, key: string) => (
               <div key={key} className={classnames(
                 styles.item,
                 {
@@ -49,7 +49,7 @@ export class Skills extends React.Component<{
               )}>
                 <input
                   type='checkbox'
-                  checked={player.skillProficiencies.indexOf(key) !== -1}
+                  checked={character.skillProficiencies.indexOf(key) !== -1}
                   disabled
                 />
                 <label />

@@ -18,7 +18,7 @@ export function initStatic(data: Collection): void {
 };
 
 const modelsToHydrate = [
-  models.PLAYER,
+  models.CHARACTER,
   models.STAT,
 ];
 

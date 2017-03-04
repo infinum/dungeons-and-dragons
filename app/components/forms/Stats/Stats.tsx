@@ -8,64 +8,64 @@ import {Info} from 'components/forms/Info/Info';
 import {SavingThrows} from 'components/forms/SavingThrows/SavingThrows';
 import {Skills} from 'components/forms/Skills/Skills';
 import {StatItem} from 'components/StatItem/StatItem';
-import {Player} from 'stores/models';
+import {Character} from 'stores/models';
 
 import * as styles from './Stats.scss';
 
 @observer
 export class StatsForm extends React.Component<{
-  player: Player;
+  character: Character;
   onChange: Function;
 }, {}> {
 
   public render() {
-    const {onChange, player} = this.props;
+    const {onChange, character} = this.props;
     return (
       <section>
         <div className={styles.stats}>
           <StatItem
-            player={player}
+            character={character}
             id='strength'
             name='Strength'
             onChange={onChange}
           />
           <StatItem
-            player={player}
+            character={character}
             id='dexterity'
             name='Dexterity'
             onChange={onChange}
           />
           <StatItem
-            player={player}
+            character={character}
             id='constitution'
             name='Constitution'
             onChange={onChange}
           />
           <StatItem
-            player={player}
+            character={character}
             id='intelligence'
             name='Intelligence'
             onChange={onChange}
           />
           <StatItem
-            player={player}
+            character={character}
             id='wisdom'
             name='Wisdom'
             onChange={onChange}
           />
           <StatItem
-            player={player}
+            character={character}
             id='charisma'
             name='Charisma'
             onChange={onChange}
           />
-          <Info className={styles.passiveBox} value={player.passivePerception} name='Passive per.' />
+          <Info className={styles.passiveBox} value={character.passivePerception} name='Passive per.' />
         </div>
 
         <div className={styles.stats}>
-          <Skills player={player} />
+          <Skills character={character} />
 
-          <SavingThrows player={player} className={styles.savingThrows} />
+          <SavingThrows character={character} className={styles.savingThrows} />
         </div>
       </section>
     );

@@ -1,9 +1,9 @@
 export default {
   ALIGNMENT: 'alignment',
   BACKGROUND: 'background',
+  CHARACTER: 'character',
   CLASS: 'class',
   LEVEL: 'level',
-  PLAYER: 'player',
   RACE: 'race',
   SPELL: 'spell',
   STAT: 'stat',

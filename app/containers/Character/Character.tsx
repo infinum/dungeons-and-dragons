@@ -7,37 +7,37 @@ import {StatsForm} from 'components/forms/Stats/Stats';
 
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
-import {Player as PlayerModel} from 'stores/models';
+import {Character as CharacterModel} from 'stores/models';
 import {transformForDropdown} from 'utils/dropdownSource';
 
-import * as styles from './Player.scss';
+import * as styles from './Character.scss';
 
 @inject('data')
 @observer
-export class Player extends React.Component<{
+export class Character extends React.Component<{
   params: Array<any>
   data: DataCollection;
 }, {}> {
-  public player: PlayerModel;
+  public character: CharacterModel;
 
   constructor(props) {
     super(props);
 
     const {data} = props;
-    const playerId = parseInt(props.params[1], 10);
+    const characterId = parseInt(props.params[1], 10);
 
     this.onStatChange = this.onStatChange.bind(this);
-    this.player = data.find(models.PLAYER, playerId) as PlayerModel;
+    this.character = data.find(models.CHARACTER, characterId) as CharacterModel;
   }
 
   public onStatChange(stat: string) {
-    return (e) => this.player.stats[stat] = e.target.value;
+    return (e) => this.character.stats[stat] = e.target.value;
   }
 
   public render() {
     const {data} = this.props;
 
-    if (!this.player) {
+    if (!this.character) {
       return <h1>Not found!</h1>;
     }
 
@@ -45,22 +45,22 @@ export class Player extends React.Component<{
     const backgrounds = transformForDropdown(data.background);
     const classes = transformForDropdown(data.class);
     const races = transformForDropdown(data.race);
-    const subraces = transformForDropdown(this.player.availableSubraces);
+    const subraces = transformForDropdown(this.character.availableSubraces);
 
     return (
       <div>
         <div className={styles.content}>
           <BasicForm
             alignments={alignments}
-            basic={this.player}
+            basic={this.character}
             backgrounds={backgrounds}
             classes={classes}
             races={races}
             subraces={subraces}
           />
-          {/*<AppearanceForm appearance={this.player} />*/}
+          {/*<AppearanceForm appearance={this.character} />*/}
           <StatsForm
-            player={this.player}
+            character={this.character}
             onChange={this.onStatChange}
           />
         </div>

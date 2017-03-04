@@ -6,11 +6,11 @@ chai.use(chaiEnzyme());
 const expect = chai.expect;
 
 import * as React from 'react';
-import {CreatePlayer} from './CreatePlayer';
+import {CreateCharacter} from './CreateCharacter';
 
-describe('components/Player/CreatePlayer', () => {
+describe('components/Character/CreateCharacter', () => {
   it('should show a button', () => {
-    const wrapper = render(<CreatePlayer onCreateClick={() => null} />);
+    const wrapper = render(<CreateCharacter onCreateClick={() => null} />);
 
     expect(wrapper.find('button').length).to.equal(1);
   });

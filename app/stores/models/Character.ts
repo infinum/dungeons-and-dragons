@@ -12,8 +12,8 @@ type ICollection = {
   level: Array<Level>;
 };
 
-export class Player extends FormModel implements IBasic, IAppearance {
-  public static type = models.PLAYER;
+export class Character extends FormModel implements IBasic, IAppearance {
+  public static type = models.CHARACTER;
 
   public static refs = {
     alignment: models.ALIGNMENT,

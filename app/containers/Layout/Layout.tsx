@@ -5,7 +5,6 @@ import {Header} from 'containers';
 
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
-import {Player as PlayerModel} from 'stores/models';
 
 @observer
 export class Layout extends React.Component<{
@@ -15,7 +14,7 @@ export class Layout extends React.Component<{
   public render() {
     return (
       <div>
-        <Header playerId={this.props.params.id} />
+        <Header characterId={this.props.params.id} />
         {this.props.children}
       </div>
     );

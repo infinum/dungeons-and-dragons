@@ -7,7 +7,7 @@ import {Link} from 'utils/router';
 
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
-import {Player as PlayerModel} from 'stores/models';
+import {Character as CharacterModel} from 'stores/models';
 
 import * as styles from './Header.scss';
 const logo = require('images/Logo/small.svg');
@@ -15,17 +15,17 @@ const logo = require('images/Logo/small.svg');
 @inject('data')
 @observer
 export class Header extends React.Component<{
-  playerId?: string;
+  characterId?: string;
   data?: DataCollection;
 }, {}> {
-  public player: PlayerModel;
+  public character: CharacterModel;
 
   public componentWillMount() {
-    this.player = this.getPlayer();
+    this.character = this.getPlayer();
   }
 
   public componentWillReceiveProps(props) {
-    this.player = this.getPlayer(props.playerId);
+    this.character = this.getPlayer(props.playerId);
   }
 
   public render() {
@@ -34,15 +34,15 @@ export class Header extends React.Component<{
         <Link to='/' className={styles.logoLink}>
           <AppLogo />
         </Link>
-        <PlayerPicker player={this.player} />
+        <PlayerPicker character={this.character} />
       </div>
     );
   }
 
-  private getPlayer(id?: string): PlayerModel {
+  private getPlayer(id?: string): CharacterModel {
     const {data} = this.props;
-    const playerId = parseInt(id || this.props.playerId, 10);
+    const playerId = parseInt(id || this.props.characterId, 10);
 
-    return data.find(models.PLAYER, playerId) as PlayerModel;
+    return data.find(models.CHARACTER, playerId) as CharacterModel;
   }
 }

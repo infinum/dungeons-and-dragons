@@ -3,29 +3,29 @@ import {observer} from 'mobx-react';
 import * as React from 'react';
 
 import {Box} from 'components/common/Box/Box';
-import {Player} from 'stores/models';
+import {Character} from 'stores/models';
 import {map} from 'utils/helpers';
 
 import * as styles from './SavingThrows.scss';
 
 @observer
 export class SavingThrows extends React.Component<{
-  player: Player;
+  character: Character;
   className?: string;
 }, {}> {
 
   public render() {
-    const {player, className} = this.props;
+    const {character, className} = this.props;
     return (
       <Box className={classnames(styles.savingThrows, className)}>
         <h4 className={styles.title}>Saving throws (WIP)</h4>
         <div>
           {
-            map(player.savingThrows, (value, key: string) => (
+            map(character.savingThrows, (value, key: string) => (
               <div key={key} className={styles.item}>
                 <input
                   type='checkbox'
-                  checked={player.savingThrowProficiencies.indexOf(key) !== -1}
+                  checked={character.savingThrowProficiencies.indexOf(key) !== -1}
                   disabled
                 />
                 <label />
