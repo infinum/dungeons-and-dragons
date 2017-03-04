@@ -1,0 +1,12 @@
+@import '../../../styles/colors';
+
+.stats {
+  display: flex;
+  padding-top: 32px;
+  margin-top: 32px;
+  border-top: 2px solid $primary-text-color;
+}
+
+.passiveBox {
+  flex: 1 0;
+}

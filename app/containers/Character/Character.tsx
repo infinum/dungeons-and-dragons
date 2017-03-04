@@ -2,6 +2,7 @@ import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 
 import {BasicInfoSection} from 'components/Character/BasicInfoSection/BasicInfoSection';
+import {StatsSection} from 'components/Character/StatsSection/StatsSection';
 import {AppearanceForm} from 'components/forms/Appearance/Appearance';
 import {StatsForm} from 'components/forms/Stats/Stats';
 
@@ -61,6 +62,10 @@ export class Character extends React.Component<{
             }}
           />
           {/*<AppearanceForm appearance={this.character} />*/}
+          <StatsSection
+            character={this.character}
+            onChange={this.onStatChange}
+          />
           <StatsForm
             character={this.character}
             onChange={this.onStatChange}

@@ -1,17 +1,3 @@
-@import '../../../styles/colors';
-@import '../../../styles/fonts';
-
-.stats {
-  display: flex;
-  padding-top: 32px;
-  margin-top: 32px;
-  border-top: 2px solid $primary-text-color;
-}
-
 .saving-throws {
   margin-left: 20px;
-}
-
-.passiveBox {
-  flex: 1 0;
 }
