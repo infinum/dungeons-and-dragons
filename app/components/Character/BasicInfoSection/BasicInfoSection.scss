@@ -1,0 +1,20 @@
+@import '~media-blender';
+
+.columns {
+  @include media(desktop large) {
+    display: flex;
+  }
+}
+
+.rightForm {
+  flex: 1 0;
+}
+
+.leftForm {
+  flex: 2;
+  max-width: 700px;
+}
+
+.proficiency {
+  margin-top: 30px;
+}

@@ -1,0 +1,18 @@
+@import '../../../styles/fonts';
+
+.header {
+  line-height: middle;
+}
+
+.character-name {
+  max-width: 300px;
+}
+
+.level {
+  font-family: $secondary-font;
+  font-size: 22px;
+  line-height: 90px;
+  height: 90px;
+  display: inline-block;
+  padding: 0 20px 15px;
+}

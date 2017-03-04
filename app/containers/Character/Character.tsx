@@ -1,8 +1,8 @@
 import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 
+import {BasicInfoSection} from 'components/Character/BasicInfoSection/BasicInfoSection';
 import {AppearanceForm} from 'components/forms/Appearance/Appearance';
-import {BasicForm} from 'components/forms/Basic/Basic';
 import {StatsForm} from 'components/forms/Stats/Stats';
 
 import models from 'enums/models';
@@ -50,13 +50,15 @@ export class Character extends React.Component<{
     return (
       <div>
         <div className={styles.content}>
-          <BasicForm
-            alignments={alignments}
-            basic={this.character}
-            backgrounds={backgrounds}
-            classes={classes}
-            races={races}
-            subraces={subraces}
+          <BasicInfoSection
+            character={this.character}
+            options={{
+              alignments,
+              backgrounds,
+              classes,
+              races,
+              subraces,
+            }}
           />
           {/*<AppearanceForm appearance={this.character} />*/}
           <StatsForm
