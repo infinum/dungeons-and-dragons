@@ -2,7 +2,8 @@ import * as classnames from 'classnames';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 
-import {Box} from 'components/common/Box/Box';
+import {Box} from 'components/Common/Box/Box';
+import {Checkbox} from 'components/Common/Checkbox/Checkbox';
 import {Character} from 'stores/models';
 import {map} from 'utils/helpers';
 
@@ -23,12 +24,10 @@ export class SavingThrows extends React.Component<{
           {
             map(character.savingThrows, (value, key: string) => (
               <div key={key} className={styles.item}>
-                <input
-                  type='checkbox'
+                <Checkbox
                   checked={character.savingThrowProficiencies.indexOf(key) !== -1}
                   disabled
                 />
-                <label />
                 <span className={styles.value}>
                   {value < 0 ? value : `+${value}`}
                 </span>

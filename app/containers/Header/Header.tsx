@@ -2,7 +2,7 @@ import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 
 import {AppLogo} from 'components/Common/AppLogo/AppLogo';
-import {PlayerPicker} from 'components/PlayerPicker/PlayerPicker';
+import {PlayerPicker} from 'components/Common/PlayerPicker/PlayerPicker';
 import {Link} from 'utils/router';
 
 import models from 'enums/models';

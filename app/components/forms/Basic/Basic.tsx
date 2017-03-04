@@ -3,8 +3,9 @@ import * as React from 'react';
 import Dropdown from 'react-toolbox/lib/dropdown';
 import Input from 'react-toolbox/lib/input';
 
-import {Box} from 'components/common/Box/Box';
-import {Info} from 'components/forms/Info/Info';
+import {Box} from 'components/Common/Box/Box';
+import {Checkbox} from 'components/Common/Checkbox/Checkbox';
+import {InfoBox} from 'components/Common/InfoBox/InfoBox';
 import {IBasic, IFormField} from 'interfaces';
 import {DropdownSource} from 'utils/dropdownSource';
 
@@ -101,14 +102,13 @@ export class BasicForm extends React.Component<{
               </div>
               <div>Proficiency bonus</div>
               <div className={styles.inspiration}>
-                <input type='checkbox' disabled checked={basic.inspiration} />
-                <label />
+                <Checkbox disabled checked={basic.inspiration} />
                 Inspiration
               </div>
             </Box>
           </div>
           <div className={styles.rightForm}>
-            <Info name='Speed' value={basic.race && basic.race.speed} />
+            <InfoBox name='Speed' value={basic.race && basic.race.speed} />
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {CharacterItem} from 'components/Character/CharacterItem/CharacterItem';
+import {CharacterItem} from 'components/Home/CharacterItem/CharacterItem';
 import {Character} from 'stores/models';
 
 import * as styles from './CharacterList.scss';

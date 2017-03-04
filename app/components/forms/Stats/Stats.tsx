@@ -3,8 +3,8 @@ import {observer} from 'mobx-react';
 import * as React from 'react';
 import Input from 'react-toolbox/lib/input';
 
-import {Box} from 'components/common/Box/Box';
-import {Info} from 'components/forms/Info/Info';
+import {Box} from 'components/Common/Box/Box';
+import {InfoBox} from 'components/Common/InfoBox/InfoBox';
 import {SavingThrows} from 'components/forms/SavingThrows/SavingThrows';
 import {Skills} from 'components/forms/Skills/Skills';
 import {StatItem} from 'components/StatItem/StatItem';
@@ -59,7 +59,7 @@ export class StatsForm extends React.Component<{
             name='Charisma'
             onChange={onChange}
           />
-          <Info className={styles.passiveBox} value={character.passivePerception} name='Passive per.' />
+          <InfoBox className={styles.passiveBox} value={character.passivePerception} name='Passive per.' />
         </div>
 
         <div className={styles.stats}>

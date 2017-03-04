@@ -3,9 +3,9 @@ import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 import {browserHistory} from 'utils/router';
 
-import {CharacterList} from 'components/Character/CharacterList/CharacterList';
-import {CreateCharacter} from 'components/Character/CreateCharacter/CreateCharacter';
-import {DeleteCharacter} from 'components/Character/DeleteCharacter/DeleteCharacter';
+import {CharacterList} from 'components/Home/CharacterList/CharacterList';
+import {CreateCharacter} from 'components/Home/CreateCharacter/CreateCharacter';
+import {DeleteCharacter} from 'components/Home/DeleteCharacter/DeleteCharacter';
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
 import {Character} from 'stores/models';

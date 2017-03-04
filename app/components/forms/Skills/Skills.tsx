@@ -3,7 +3,8 @@ import {IObservableObject, observable} from 'mobx';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 
-import {Box} from 'components/common/Box/Box';
+import {Box} from 'components/Common/Box/Box';
+import {Checkbox} from 'components/Common/Checkbox/Checkbox';
 import {Character} from 'stores/models';
 import {map} from 'utils/helpers';
 
@@ -47,12 +48,10 @@ export class Skills extends React.Component<{
                   [styles.inactive]: this.stats.skillQuery && key.indexOf(this.stats.skillQuery) === -1,
                 },
               )}>
-                <input
-                  type='checkbox'
+                <Checkbox
                   checked={character.skillProficiencies.indexOf(key) !== -1}
                   disabled
                 />
-                <label />
                 <span className={styles.value}>
                   {value < 0 ? value : `+${value}`}
                 </span>

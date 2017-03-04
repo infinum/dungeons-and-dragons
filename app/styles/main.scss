@@ -40,32 +40,3 @@ body { // stylelint-disable-line
 h2 {
   font-family: $secondary-font;
 }
-
-input[type=checkbox] {
-  visibility: hidden;
-  width: 0;
-
-  & + label {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    line-height: 20px;
-    vertical-align: middle;
-    border-radius: 50%;
-    border: 2px solid lighten($primary-box-border-color, 30%);
-    background-color: $primary-box-color;
-    margin: 5px 10px 5px 0;
-  }
-
-  &:checked + label {
-    background-color: lighten($primary-box-border-color, 30%);
-  }
-
-  &[disabled] + label {
-    border-color: lighten($primary-box-border-color, 10%);
-  }
-
-  &[disabled]:checked + label {
-    background-color: lighten($primary-box-border-color, 10%);
-  }
-}
