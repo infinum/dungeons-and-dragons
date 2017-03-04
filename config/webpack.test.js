@@ -19,6 +19,7 @@ const config = {
   context: ctx,
   cache: true,
   entry,
+  target: 'node',
   output: {
     path: `${ctx}/.tmp/tests`,
     filename: '[name].js',
