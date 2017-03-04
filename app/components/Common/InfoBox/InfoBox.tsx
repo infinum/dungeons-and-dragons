@@ -8,7 +8,7 @@ export const InfoBox = ({
   name,
   className,
 }: {
-  value: number|string,
+  value?: number|string,
   name: string,
   className?: string,
 }) => (

@@ -4,7 +4,6 @@ import {observer} from 'mobx-react';
 import * as React from 'react';
 
 import {SkillItem} from 'components/Character/SkillItem/SkillItem';
-import {ColumnList} from 'components/Common/ColumnList/ColumnList';
 import {Character} from 'stores/models';
 import {map} from 'utils/helpers';
 
@@ -39,7 +38,7 @@ export class Skills extends React.Component<{
             placeholder='Search'
           />
         </h4>
-        <ColumnList className={styles.list}>
+        <div className={styles.list}>
           {
             map(character.skills, (value: number, key: string) => (
               <SkillItem
@@ -51,7 +50,7 @@ export class Skills extends React.Component<{
               />
             ))
           }
-        </ColumnList>
+        </div>
       </div>
     );
   }

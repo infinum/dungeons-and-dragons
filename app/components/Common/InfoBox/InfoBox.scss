@@ -9,12 +9,15 @@
   border: 1px solid $primary-box-border-color;
   border-radius: 2px;
   background-color: $primary-box-color;
-  width: 80px;
+  width: 76px;
   font-size: 40px;
   font-family: $secondary-font;
   font-weight: 700;
-  padding: 5px 0 15px;
+  padding: 5px 2px 15px;
   margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .infoTitle {

@@ -1,3 +1,4 @@
+import {observer} from 'mobx-react';
 import * as React from 'react';
 
 import {StatItem} from 'components/Character/StatItem/StatItem';
@@ -7,7 +8,7 @@ import {Character} from 'stores/models';
 
 import * as styles from './StatsSection.scss';
 
-export const StatsSection = ({
+export const StatsSection = observer(({
   character,
   onChange,
 }: {
@@ -55,4 +56,4 @@ export const StatsSection = ({
       <InfoBox className={styles.passiveBox} value={character.passivePerception} name='Passive per.' />
     </div>
   </Section>
-);
+));
