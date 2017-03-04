@@ -4,15 +4,15 @@ const {DEV} = require('./common');
 module.exports = [{
     enforce: 'pre',
     test: /\.js$/,
-    loader: "source-map-loader"
+    loader: 'source-map-loader'
   }, {
     enforce: 'pre',
     test: /\.(ts|tsx)$/,
-    use: "source-map-loader"
+    loader: 'source-map-loader'
   }, {
   test: /\.(ts|tsx)$/,
   exclude: /node_modules/,
-  use: [
+  loaders: [
     `ifdef-loader?json={"DEV":${DEV}}`,
     'babel-loader',
     'ts-loader'
@@ -21,14 +21,6 @@ module.exports = [{
   test: /\.json$/,
   loader: 'json-loader',
   exclude: /manifest\.json$/
-}, {
-  test: /\.(css|scss)$/,
-  use: localStyleLoaders,
-  exclude: globalStylePaths
-}, {
-  test: /\.(css|scss)$/,
-  use: globalStyleLoaders,
-  include: globalStylePaths
 }, {
   test: /\.(png|jpg|svg)$/i,
   loader: 'file-loader?name=assets/images/[name]-[hash].[ext]'
@@ -40,8 +32,16 @@ module.exports = [{
   loader: 'file-loader?name=assets/fonts/[name]-[hash].[ext]'
 }, {
   test: /manifest\.json$/,
-  use: [
+  loaders: [
     'file-loader?name=manifest.json',
     'web-app-manifest-loader'
   ]
+}, {
+  test: /\.(css|scss)$/,
+  loader: localStyleLoaders,
+  exclude: globalStylePaths
+}, {
+  test: /\.(css|scss)$/,
+  loader: globalStyleLoaders,
+  include: globalStylePaths
 }];

@@ -1,4 +1,5 @@
 import {configure} from '@kadira/storybook';
+import 'styles/main.scss';
 import 'styles/storybook.scss';
 
 function loadStories() {
