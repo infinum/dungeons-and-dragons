@@ -23,7 +23,8 @@ module.exports = {
       'react-dom': 'preact-compat'
     },
     root: [
-      `${webpackConfig.context}/app`
+      `${webpackConfig.context}/app`,
+      `${webpackConfig.context}/test`
     ],
     extensions: ['', '.js', '.ts', '.tsx', '.scss', '.css', '.json']
   }

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "*": [
-        "app/*"
+        "app/*",
+        "test/*"
       ]
     }
   },

@@ -1,22 +1,12 @@
 import {action, linkTo, storiesOf} from '@kadira/storybook';
 import * as React from 'react';
 
-import {initStatic} from 'stores/data';
-import {DataCollection} from 'stores/DataCollection';
-import {Character} from 'stores/models';
+import createCharacters from 'characterCreator';
 import {CharacterItem} from './CharacterItem';
-
-function createCharacter(data) {
-  const collection = new DataCollection();
-  const character = new Character(data, collection);
-  collection.add(character);
-  initStatic(collection);
-  return character;
-}
 
 storiesOf('CharacterItem', module)
   .add('Default View', () => {
-    const character = createCharacter({
+    const character = createCharacters({
       alignment: 'chaotic-evil',
       experience: 12345,
       name: 'FooBar',
@@ -25,7 +15,7 @@ storiesOf('CharacterItem', module)
     return <CharacterItem character={character} />;
   })
   .add('With avatar', () => {
-    const character = createCharacter({
+    const character = createCharacters({
       alignment: 'chaotic-evil',
       avatar: 'http://placehold.it/500x500/ff0000/ffffff',
       experience: 12345,
@@ -35,7 +25,7 @@ storiesOf('CharacterItem', module)
     return <CharacterItem character={character} />;
   })
   .add('Exp 0', () => {
-    const character = createCharacter({
+    const character = createCharacters({
       alignment: 'neutral',
       experience: 0,
       name: 'FooBarBaz',
@@ -44,7 +34,7 @@ storiesOf('CharacterItem', module)
     return <CharacterItem character={character} />;
   })
   .add('Over level 20', () => {
-    const character = createCharacter({
+    const character = createCharacters({
       alignment: 'lawful-evil',
       experience: 9999999,
       name: 'Baz',
