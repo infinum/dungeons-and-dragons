@@ -1,13 +1,20 @@
+@import '~media-blender';
 @import '../../../styles/fonts';
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  flex-basis: auto;
+  @include media(desktop large) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .columns {
-  display: flex;
+  @include media(desktop large) {
+    display: flex;
+  }
 }
 
 .rightForm {
@@ -16,11 +23,16 @@
 
 .leftForm {
   flex: 2;
+  max-width: 700px;
 }
 
 .inputItem {
-  margin: 0 10px;
-  max-width: 170px;
+  width: 100%;
+
+  @include media(desktop large) {
+    margin: 0 10px;
+    max-width: 30%;
+  }
 }
 
 .level {
@@ -52,18 +64,27 @@
   font-family: $secondary-font;
   margin-top: 30px;
   padding: 15px 25px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 44px;
   display: flex;
+  flex-direction: column;
   vertical-align: center;
+
+  @include media(desktop large) {
+    font-size: 22px;
+    flex-direction: row;
+  }
 }
 
 .proficiencyValue {
-  font-size: 48px;
   line-height: 40px;
   font-weight: 700;
   padding-right: 20px;
+
+  @include media(desktop large) {
+    font-size: 48px;
+  }
 }
 
 .header {

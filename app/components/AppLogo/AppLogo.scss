@@ -3,14 +3,17 @@
 
   display: flex;
   align-items: center;
+
+  &:hover {
+    .logo {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .logo {
   height: 100%;
-
-  &:hover {
-    animation: spin 1s infinite linear;
-  }
+  transition: 0.2s ease-in-out;
 }
 
 .appName {
