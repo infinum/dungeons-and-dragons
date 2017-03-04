@@ -1,3 +1,17 @@
+@import '~media-blender';
+
 .content {
   padding: 16px 48px 48px;
+
+  @include media(tablet) {
+    padding: 16px 32px;
+  }
+
+  @include media(mobile) {
+    padding: 16px;
+  }
+
+  @include media(small) {
+    padding: 8px;
+  }
 }

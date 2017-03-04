@@ -12,10 +12,12 @@ export const Bonuses = observer(({
   character: Character,
 }) => (
   <div className={styles.main}>
-    <div className={styles.proficiencyValue}>
-      {character.proficiencyBonus}
+    <div className={styles.proficiency}>
+      <div className={styles.proficiencyValue}>
+        {character.proficiencyBonus}
+      </div>
+      <div>Proficiency bonus</div>
     </div>
-    <div>Proficiency bonus</div>
     <div className={styles.inspiration}>
       <Checkbox disabled checked={character.inspiration} />
       Inspiration

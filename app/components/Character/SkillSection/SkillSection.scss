@@ -1,3 +1,5 @@
+@import '~media-blender';
+
 .main {
   display: flex;
 }
@@ -9,4 +11,15 @@
 
 .right-column {
   flex: 1;
+}
+
+@include media(tablet down) {
+  .main {
+    display: block;
+  }
+
+  .left-column {
+    margin-right: initial;
+    margin-bottom: 32px;
+  }
 }

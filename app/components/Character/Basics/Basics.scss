@@ -1,7 +1,7 @@
 @import '~media-blender';
 
 .grid {
-  @include media(desktop large) {
+  @include media(tablet up) {
     display: flex;
     flex-wrap: wrap;
     flex-basis: auto;
@@ -13,8 +13,8 @@
 .inputItem {
   width: 100%;
 
-  @include media(desktop large) {
+  @include media(tablet up) {
     margin: 0 10px;
-    max-width: 30%;
+    max-width: calc(33% - 20px);
   }
 }

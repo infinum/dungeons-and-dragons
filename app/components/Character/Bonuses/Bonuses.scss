@@ -11,23 +11,38 @@
   flex-direction: column;
   vertical-align: center;
 
-  @include media(desktop large) {
+  @include media(tablet up) {
     font-size: 22px;
     flex-direction: row;
   }
 }
 
-.proficiencyValue {
+.proficiency {
+  display: flex;
+}
+
+.proficiency-value {
   line-height: 40px;
   font-weight: 700;
   padding-right: 20px;
-
-  @include media(desktop large) {
-    font-size: 48px;
-  }
+  font-size: 32px;
 }
 
 .inspiration {
   flex: 1 0;
-  text-align: right;
+}
+
+@include media(tablet up) {
+  .main {
+    font-size: 22px;
+    flex-direction: row;
+  }
+
+  .proficiency-value {
+    font-size: 48px;
+  }
+
+  .inspiration {
+    text-align: right;
+  }
 }

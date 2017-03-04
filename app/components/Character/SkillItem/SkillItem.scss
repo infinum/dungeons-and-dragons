@@ -4,7 +4,6 @@
   position: relative;
   line-height: 30px;
   font-weight: 700;
-  padding: 5px 0;
 
   &::after {
     position: absolute;
@@ -14,10 +13,6 @@
     right: 0;
     height: 1px;
     background-color: lighten($primary-box-border-color, 10%);
-  }
-
-  &:nth-child(6n)::after {
-    display: none;
   }
 }
 

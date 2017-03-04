@@ -1,3 +1,4 @@
+@import '~media-blender';
 @import '../../../styles/colors';
 @import '../../../styles/fonts';
 
@@ -30,4 +31,17 @@ html .input { // This is stupid...
     bottom: 20px;
     border-right: 2px solid $base-white-color;
   }
+
+    @include media(mobile down) {
+      display: block;
+      padding: 0 20px;
+
+      .inputElement {
+        width: 100% !important;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
 }
