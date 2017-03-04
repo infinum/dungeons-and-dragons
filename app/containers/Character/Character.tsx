@@ -2,9 +2,8 @@ import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 
 import {BasicInfoSection} from 'components/Character/BasicInfoSection/BasicInfoSection';
+import {SkillSection} from 'components/Character/SkillSection/SkillSection';
 import {StatsSection} from 'components/Character/StatsSection/StatsSection';
-import {AppearanceForm} from 'components/forms/Appearance/Appearance';
-import {StatsForm} from 'components/forms/Stats/Stats';
 
 import models from 'enums/models';
 import {DataCollection} from 'stores/DataCollection';
@@ -61,15 +60,11 @@ export class Character extends React.Component<{
               subraces,
             }}
           />
-          {/*<AppearanceForm appearance={this.character} />*/}
           <StatsSection
             character={this.character}
             onChange={this.onStatChange}
           />
-          <StatsForm
-            character={this.character}
-            onChange={this.onStatChange}
-          />
+          <SkillSection character={this.character} />
         </div>
       </div>
     );

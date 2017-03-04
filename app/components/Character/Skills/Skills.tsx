@@ -3,8 +3,8 @@ import {IObservableObject, observable} from 'mobx';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 
-import {Box} from 'components/Common/Box/Box';
-import {Checkbox} from 'components/Common/Checkbox/Checkbox';
+import {SkillItem} from 'components/Character/SkillItem/SkillItem';
+import {ColumnList} from 'components/Common/ColumnList/ColumnList';
 import {Character} from 'stores/models';
 import {map} from 'utils/helpers';
 
@@ -28,7 +28,7 @@ export class Skills extends React.Component<{
   public render() {
     const {character} = this.props;
     return (
-      <Box className={styles.skills}>
+      <div>
         <h4 className={styles.title}>
           Skills (WIP)
           <input
@@ -39,30 +39,20 @@ export class Skills extends React.Component<{
             placeholder='Search'
           />
         </h4>
-        <div className={styles.container}>
+        <ColumnList className={styles.list}>
           {
-            map(character.skills, (value, key: string) => (
-              <div key={key} className={classnames(
-                styles.item,
-                {
-                  [styles.inactive]: this.stats.skillQuery && key.indexOf(this.stats.skillQuery) === -1,
-                },
-              )}>
-                <Checkbox
-                  checked={character.skillProficiencies.indexOf(key) !== -1}
-                  disabled
-                />
-                <span className={styles.value}>
-                  {value < 0 ? value : `+${value}`}
-                </span>
-                <span className={styles.name}>
-                  {key}
-                </span>
-              </div>
+            map(character.skills, (value: number, key: string) => (
+              <SkillItem
+                inactive={this.stats.skillQuery && key.indexOf(this.stats.skillQuery) === -1}
+                proficiency={character.skillProficiencies.indexOf(key) !== -1}
+                key={key}
+                value={value}
+                name={key}
+              />
             ))
           }
-        </div>
-      </Box>
+        </ColumnList>
+      </div>
     );
   }
 

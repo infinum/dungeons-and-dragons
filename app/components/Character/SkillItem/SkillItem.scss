@@ -1,18 +1,6 @@
 @import '../../../styles/colors';
-@import '../../../styles/fonts';
 
-.title {
-  font-weight: 700;
-  font-family: $secondary-font;
-  text-align: center;
-  position: relative;
-}
-
-.saving-throws {
-  flex: 1 0;
-}
-
-.item {
+.main {
   position: relative;
   line-height: 30px;
   font-weight: 700;
@@ -39,4 +27,11 @@
 
 .name::first-letter {
   text-transform: uppercase;
+}
+
+.inactive {
+  .value,
+  .name {
+    opacity: 0.3;
+  }
 }

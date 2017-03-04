@@ -1,9 +1,9 @@
 import * as classnames from 'classnames';
 import * as React from 'react';
 
-import * as styles from './Section.scss';
+import * as styles from './ColumnList.scss';
 
-export const Section = ({
+export const ColumnList = ({
   children,
   className,
 }: {

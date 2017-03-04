@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+}
+
+.left-column {
+  flex: 3;
+  margin-right: 32px;
+}
+
+.right-column {
+  flex: 1;
+}

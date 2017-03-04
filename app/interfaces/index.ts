@@ -1,4 +1,3 @@
-export {IAppearance} from 'interfaces/IAppearance.ts';
 export {IBasics} from 'interfaces/IBasics.ts';
 export {IDictionary} from 'interfaces/IDictionary.ts';
 export {IFormField} from 'interfaces/IFormField.ts';

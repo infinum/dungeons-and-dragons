@@ -2,7 +2,7 @@ import {action, autorun, computed, extendObservable} from 'mobx';
 import {Collection} from 'mobx-collection-store';
 
 import models from 'enums/models';
-import {IAppearance, IStats} from 'interfaces';
+import {IStats} from 'interfaces';
 import {Alignment, Background, Class, Level, Race, SubRace} from 'stores/models';
 import conditional from 'utils/conditional';
 import {first, last, mapValues} from 'utils/helpers';
@@ -12,7 +12,7 @@ type ICollection = {
   level: Array<Level>;
 };
 
-export class Character extends FormModel implements IAppearance {
+export class Character extends FormModel {
   public static type = models.CHARACTER;
 
   public static refs = {
