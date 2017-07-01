@@ -7,4 +7,4 @@ export class Background extends StaticModel {
   public id: string;
   public name: string;
   public skillProficiencies: Array<string>;
-};
+}

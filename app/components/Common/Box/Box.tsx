@@ -7,7 +7,7 @@ export const Box = ({
   children,
   className,
 }: {
-  children?: JSX.Element;
+  children?: any;
   className?: string;
 }) => (
   <div className={classnames(styles.main, className)}>

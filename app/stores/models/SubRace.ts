@@ -7,4 +7,4 @@ export class SubRace extends StaticModel {
   public id: string;
   public name: string;
   public abillityScoreIncrease: {[abillity: string]: number};
-};
+}

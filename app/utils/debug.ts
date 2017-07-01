@@ -2,8 +2,8 @@ import config from 'config';
 
 import {DEBUG_OBJ} from 'consts/app';
 
-/** @constant {Object} debug - Object to be exposed */
-const debug: Object = {config};
+/** @constant {object} debug - object to be exposed */
+const debug: object = {config};
 
 if (!config.PROD) {
   window[DEBUG_OBJ] = debug;
@@ -23,9 +23,9 @@ export function debugVar(name: string, value: any): void {
 /**
  * Add multiple variables to the debug object
  *
- * @param {Object} vars - Object with variables to be added
+ * @param {object} vars - object with variables to be added
  * @return {undefined}
  */
-export function debugVars(vars: Object): void {
+export function debugVars(vars: object): void {
   Object.assign(debug, vars);
 }

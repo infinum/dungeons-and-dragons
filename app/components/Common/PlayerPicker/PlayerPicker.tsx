@@ -12,7 +12,7 @@ export const PlayerPicker = observer(({character}: {character: CharacterModel}) 
       <h5 className={styles.action}>
         Change player
       </h5>
-      <h4>{character.playerName}</h4>
+      <h4>{character && character.playerName}</h4>
     </div>
   </Visibility>
 ));

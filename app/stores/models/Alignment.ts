@@ -5,4 +5,4 @@ export class Alignment extends StaticModel {
 
   public id: string;
   public name: string;
-};
+}

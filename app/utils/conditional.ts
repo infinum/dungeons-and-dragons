@@ -11,7 +11,7 @@ import {Model} from 'mobx-collection-store';
  * @param {Model} model - Model instance
  * @returns {IComputedValue<any>}
  */
-export default function conditional(name: string, getRefModel: Function, model: Model): IComputedValue<any> {
+export default function conditional(name: string, getRefModel: (data) => Model, model: Model): IComputedValue<any> {
   const internalName = `__${name}Id`;
   model.assign(internalName, model[internalName]);
   return computed(
@@ -23,4 +23,4 @@ export default function conditional(name: string, getRefModel: Function, model: 
       }
     },
   );
-};
+}

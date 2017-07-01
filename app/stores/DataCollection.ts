@@ -1,8 +1,10 @@
-import {Collection} from 'mobx-collection-store';
+import {computed} from 'mobx';
+import {Collection, IModel} from 'mobx-collection-store';
 
 import models from 'enums/models';
 import {removeModel} from 'services/persistance';
 import {Alignment, Background, Character, Class, Level, Race, Spell, StatType, SubRace} from 'stores/models';
+import {PersistantModel} from 'stores/models/base/PersistantModel';
 
 export class DataCollection extends Collection {
   public static types = [Alignment, Background, Character, Class, Level, Race, Spell, StatType, SubRace];
@@ -21,13 +23,21 @@ export class DataCollection extends Collection {
   /**
    * Remove the model from the store and persistent storage
    *
-   * @param {string} type
+   * @param {number|string} type
    * @param {(number|string)} [id]
    *
    * @memberOf DataCollection
    */
-  public remove(type: string, id?: number|string) {
-    super.remove(type, id);
+  public remove<T extends IModel>(type: number|string, id?: number|string): T {
+    const model = super.remove<T>(type, id);
     removeModel(type, id);
+    return model;
+  }
+
+  @computed get snapshot() {
+    // tslint:disable-next-line:no-string-literal
+    return this['__data']
+      .filter((item) => item instanceof PersistantModel)
+      .map((item) => item.snapshot);
   }
 }

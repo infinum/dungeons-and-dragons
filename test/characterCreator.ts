@@ -2,11 +2,14 @@ import {initStatic} from 'stores/data';
 import {DataCollection} from 'stores/DataCollection';
 import {Character} from 'stores/models';
 
-type CharacterObject = {name?: string, [key: string]: any};
+interface ICharacterObject {
+  name?: string;
+  [key: string]: any;
+}
 
-function createCharacters(data: Array<CharacterObject>): Array<Character>;
-function createCharacters(data: CharacterObject): Character;
-function createCharacters(data: CharacterObject|Array<CharacterObject>): Character|Array<Character> {
+function createCharacters(data: Array<ICharacterObject>): Array<Character>;
+function createCharacters(data: ICharacterObject): Character;
+function createCharacters(data: ICharacterObject|Array<ICharacterObject>): Character|Array<Character> {
   const collection = new DataCollection();
   const characters = data instanceof Array
     ? data.map((itemData) => new Character(itemData, collection))

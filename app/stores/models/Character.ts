@@ -8,9 +8,9 @@ import conditional from 'utils/conditional';
 import {first, last, mapValues} from 'utils/helpers';
 import {FormModel} from './base/FormModel';
 
-type ICollection = {
+interface ICollection {
   level: Array<Level>;
-};
+}
 
 export class Character extends FormModel {
   public static type = models.CHARACTER;
@@ -73,7 +73,7 @@ export class Character extends FormModel {
   public stats: IStats;
   public subrace: SubRace;
 
-  constructor(data?: Object, collection?: Collection) {
+  constructor(data?: object, collection?: Collection) {
     super(data, collection);
 
     extendObservable(this, {

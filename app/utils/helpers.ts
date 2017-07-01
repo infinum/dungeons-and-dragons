@@ -2,7 +2,7 @@ export function sleep(duration: number): Promise<any> {
   return new Promise((resolve) => setTimeout(resolve, duration));
 }
 
-export function map(obj: Object|Array<any>, callback: (value: any, key: number|string) => {}) {
+export function map(obj: object|Array<any>, callback: (value: any, key: number|string) => {}) {
   if (obj instanceof Array) {
     return obj.map(callback);
   }
@@ -17,7 +17,7 @@ export function last(arr: Array<any>) {
   return arr[arr.length - 1];
 }
 
-export function mapValues<T>(obj: Object, callback: (value: any, key: string) => T): {[key: string]: T} {
+export function mapValues<T>(obj: object, callback: (value: any, key: string) => T): {[key: string]: T} {
   const copy = {};
 
   Object.keys(obj).forEach((key) => {

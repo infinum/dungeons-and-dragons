@@ -9,7 +9,7 @@ import * as store from 'stores';
 import DevTools from 'mobx-react-devtools';
 /// #endif
 
-export default ({location}: {location: Object}) => {
+export default ({location}: {location: object}) => {
   let app = <AppRouter store={store} location={location} />;
 
   /// #if DEV

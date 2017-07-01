@@ -7,7 +7,7 @@ export const Section = ({
   children,
   className,
 }: {
-  children?: JSX.Element,
+  children?: any,
   className?: string,
 }) => (
   <div className={classnames(className, styles.main)}>

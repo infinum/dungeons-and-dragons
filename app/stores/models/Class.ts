@@ -16,4 +16,4 @@ export class Class extends StaticModel {
   public primaryAbillity?: Array<StatType>;
   public savingThrowProficiencies: Array<StatType>;
   public savingThrowProficienciesId: Array<string>;
-};
+}

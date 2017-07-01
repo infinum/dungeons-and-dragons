@@ -15,10 +15,10 @@ export function initStatic(data: Collection): Promise<{}> {
       data.add(stats.races, models.RACE);
       data.add(stats.spells, models.SPELL);
       data.add(stats.statTypes, models.STAT_TYPE);
+      resolve();
     });
-    resolve();
   });
-};
+}
 
 const modelsToHydrate = [
   models.CHARACTER,
@@ -29,4 +29,4 @@ export function hydrate(data: Collection): void {
   modelsToHydrate.forEach((type) => {
     data.add(loadTypeModels(type), type);
   });
-};
+}

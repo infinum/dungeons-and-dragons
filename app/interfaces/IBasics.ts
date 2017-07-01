@@ -1,11 +1,11 @@
 import {IStats} from 'interfaces';
 import {Alignment, Background, Class, Level, Race, SubRace} from 'stores/models';
-import {DropdownSource} from 'utils/dropdownSource';
+import {IDropdownSource} from 'utils/dropdownSource';
 
 export interface IBasics {
-  alignments: Array<DropdownSource>;
-  backgrounds: Array<DropdownSource>;
-  classes: Array<DropdownSource>;
-  races: Array<DropdownSource>;
-  subraces: Array<DropdownSource>;
-};
+  alignments: Array<IDropdownSource>;
+  backgrounds: Array<IDropdownSource>;
+  classes: Array<IDropdownSource>;
+  races: Array<IDropdownSource>;
+  subraces: Array<IDropdownSource>;
+}

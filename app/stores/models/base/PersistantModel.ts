@@ -4,10 +4,8 @@ import {Collection, Model} from 'mobx-collection-store';
 import {saveModel} from 'services/persistance';
 
 export class PersistantModel extends Model {
-
-  constructor(data: Object, collection?: Collection) {
-
-    super(data, collection);
+  constructor(...args) {
+    super(...args);
 
     autorun(() => {
       try {

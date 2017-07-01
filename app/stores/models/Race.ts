@@ -17,4 +17,4 @@ export class Race extends StaticModel {
   public findSubrace(id: string) {
     return this.subraces.find((subrace) => subrace.id === id);
   }
-};
+}

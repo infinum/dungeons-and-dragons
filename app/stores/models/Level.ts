@@ -12,4 +12,4 @@ export class Level extends StaticModel {
   public toString(): string {
     return this.level.toString();
   }
-};
+}

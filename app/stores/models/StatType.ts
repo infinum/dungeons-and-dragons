@@ -6,4 +6,4 @@ export class StatType extends StaticModel {
 
   public id: string;
   public name: string;
-};
+}

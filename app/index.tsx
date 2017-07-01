@@ -17,7 +17,8 @@ const location = observable({
   pathname: window.location.pathname,
 });
 
-debugVars({data, keys, location});
+import * as mobx from 'mobx';
+debugVars({data, keys, location, mobx});
 
 window.addEventListener('popstate', action(() => {
   location.pathname = window.location.pathname;

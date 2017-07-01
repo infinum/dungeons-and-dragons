@@ -19,4 +19,4 @@ export class Spell extends StaticModel {
   public level: number;
   public school: string;
   public class: Array<Class>;
-};
+}

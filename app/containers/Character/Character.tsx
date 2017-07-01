@@ -1,3 +1,4 @@
+import {action} from 'mobx';
 import {inject, observer} from 'mobx-react';
 import * as React from 'react';
 
@@ -31,7 +32,9 @@ export class Character extends React.Component<{
   }
 
   public onStatChange(stat: string) {
-    return (e) => this.character.stats[stat] = e.target.value;
+    return action((e: {target: {value: number}}) => {
+      this.character.stats = {...this.character.stats, [stat]: e.target.value};
+    });
   }
 
   public render() {

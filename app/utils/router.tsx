@@ -25,7 +25,7 @@ function matchPath(path, pathname) {
 }
 
 export const Router = observer((
-  {routes, location}: {routes: {[key: string]: Array<typeof React.Component>}, location: {pathname: string}},
+  {routes, location}: {routes: {[key: string]: Array<any>}, location: {pathname: string}},
 ): JSX.Element => {
   const paths = Object.keys(routes);
   const path = paths.find((p) => {

@@ -5,5 +5,5 @@ export const Visibility = ({
   children,
 }: {
   isVisible: boolean|number|string,
-  children?: JSX.Element,
+  children?: any,
 }) => isVisible ? React.Children.only(children) : null;
