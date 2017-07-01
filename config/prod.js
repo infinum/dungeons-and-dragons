@@ -1,5 +1,5 @@
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyPlugin = require('uglifyjs-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const {ctx, DEV} = require('./common');
@@ -10,7 +10,7 @@ module.exports = {
       config.plugins = [
         new CleanWebpackPlugin(`${ctx}/dist`, {root: ctx}),
         ...config.plugins,
-        new UglifyPlugin({
+        new webpack.optimize.UglifyJsPlugin({
           acorn: true,
           'screw-ie8': true,
           beautify: false,

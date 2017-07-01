@@ -36,7 +36,8 @@ module.exports = [
   }),
   new ExtractTextPlugin({
     allChunks: true,
-    filename: 'styles-[contenthash].css',
+    filename: 'styles-[name]-[contenthash].css',
     disable: DEV
   }),
+  new webpack.optimize.ModuleConcatenationPlugin(),
 ];

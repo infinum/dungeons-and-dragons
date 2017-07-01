@@ -5286,9 +5286,9 @@ mobx-react@^4.2.2:
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
-mobx-store-devtools@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/mobx-store-devtools/-/mobx-store-devtools-0.1.1.tgz#ad8526ffb1d9c786cd0f7267d2a43dd6da5a1118"
+mobx-store-devtools@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/mobx-store-devtools/-/mobx-store-devtools-0.1.2.tgz#8c61eb3ddd7cd0458751d34b9625e0319fe1fc52"
   dependencies:
     remotedev "^0.2.7"
 
@@ -8214,7 +8214,7 @@ ua-parser-js@^0.7.9:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
-uglify-js@2.7.x, "uglify-js@git://github.com/mishoo/UglifyJS2#harmony", uglify-js@~2.7.3:
+uglify-js@2.7.x, uglify-js@~2.7.3:
   version "2.7.5"
   resolved "git://github.com/mishoo/UglifyJS2#4bd31607f665499543bbc83192225203ae6763d1"
   dependencies:
@@ -8236,7 +8236,7 @@ uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
 
-uglifyjs-webpack-plugin@^0.4.4, uglifyjs-webpack-plugin@^0.4.6:
+uglifyjs-webpack-plugin@^0.4.4:
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-0.4.6.tgz#b951f4abb6bd617e66f63eb891498e391763e309"
   dependencies:
